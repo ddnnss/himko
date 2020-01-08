@@ -1,0 +1,485 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+ {% block content %}
+
+
+  <div class="container">
+<DIV ID="toTop"> <img src="{% static 'img/top.png' %}"> </DIV>
+<div class="header">
+<a href="/"><img src="{% static 'img/horeca_logo.jpg' %}" alt="СпецСинтез" class="logo"></a>
+	
+<div class="sredstva"><img src="{% static 'img/specsintez_horeca.png' %}"></div>
+	
+	<div class="right-contacts">
+		<a href="tel: 88007772647"> 8 800 777 26 47</a><br>(Звонок по России бесплатный)</div>
+
+		
+		<div class="top-menu-horeca">
+		<ul>
+			<li><a href="#firstBlock">Почему мы?</a></li>
+			<li><a class="orangelink" href="#katalog">Каталог</a></li>
+			<li><a href="#otzyvy">Отзывы</a></li>
+			<li><a href="#kak-rabotaet-himiya">Как работает химия</a></li>
+			<li><a href="#kak-zakazat-i-pochit">Как заказать и получить</a></li>
+			<li class="noborder"><a href="#contacts">Контакты</a></li>
+		</ul>
+	</div>
+	
+	<div class="slogan">ПРОФЕССИОНАЛЬНЫЕ МОЮЩИЕ И ДЕЗИНФИЦИРУЮЩИЕ СРЕДСТВА ДЛЯ ПРЕДПРИЯТИЙ</div>
+		
+</div>
+<div class="block1">
+	<div class="left"><p><span>Сэкономьте до 40% бюджета и времени на уборке и дезинфекции.</span></p>
+	<div class="ulleft"><div class="leftul">Стоимость готового раствора от 3&nbsp;копеек</div><div class="leftul">Выдержка средств&nbsp;на поверхности от 1 минуты</div><div class="leftul">Бесплатная аренда дозаторов</div><div class="leftul">Бесплатная доставка средств до дверей</div></div>
+	
+	<div class="forma-skidka2">
+		<div class="forma-title">Узнать подробнее</div>
+				<form name="form-2">
+			<input class="name" name="name" type="text" placeholder="Имя">
+			<input class="tell"  name="tell" type="text" placeholder="+7 (   )   -  -  ">
+			<input onclick="ga('send','event','submint','main_consult'); yaCounter54989140.reachGoal('main_consult'); return true;" class="feedback feedback3" name="send" type="button" value="Получить консультацию">
+			</form>
+		</div>
+	
+	</div>
+	<div class="right">
+	
+	<div class="flex-container">
+	<div class="flexslider">
+		<ul class="slides">
+			<li>
+				<img src="{% static 'img/block1right22.jpg' %}">
+			</li>
+			
+			<li>
+				<img src="{% static 'img/block1right23.jpg' %}">
+			</li>
+			
+			<li>
+				<img src="{% static 'img/block1right28.jpg' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right27.jpg' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right29.jpg' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right26.jpg' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right36.jpg' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right30.png' %}">
+			</li>
+			<li>
+				<img src="{% static 'img/block1right24.jpg' %}">
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<script>
+$(document).ready(function () {
+	$('.flexslider').flexslider({
+		animation: 'fade',
+		animSpeed: '500',
+		autoplay: 'true',
+		controlsContainer: '.flexslider'
+	});
+});
+</script>
+	
+	</div>
+</div>
+
+
+
+
+
+<div  class="block4">
+	<div class="block4inside">
+		<h2>Преимущества продукции СпецСинтез</h2>
+		<div class="block-gray"><img src="{% static 'img/h-1.png' %}"><span>Отсутствие токсичности</span><br>Средства не имеют резкого запаха, можно работать без защитных масок</div>
+		<div class="block-gray"><img src="{% static 'img/h-2.png' %}"><span>Срок хранения</span><br>Концентраты - до 5 лет, готовые растворы до 30 суток.</div>
+		<div class="block-gray"><img src="{% static 'img/h-3.png' %}"><span>Универсальность</span><br>Средства работают в воде любой жесткости, при температуре от 5 град</div>
+		<div class="block-gray"><img src="{% static 'img/h-4.png' %}"><span>100% ​эффективность</span><br>Высокая моющая <br>и антисептическая способность</div>
+		<div class="block-gray"><img src="{% static 'img/h-5.png' %}"><span>Безопасность</span><br>Все средства биоразлогаемы и имеют 4 класс опасности</div>
+		<div class="block-gray"><img src="{% static 'img/h-6.png' %}"><span>Документация</span><br>Имеется вся документация на продукцию, в т.ч. для прохождения HASSP</div>
+	</div>
+</div>
+
+
+<div class="block-black">
+	<div class="block-black-inside">
+		<div><span>85 регионов РФ</span><hr>Продукция представлена во всех регионах России</div>
+		<div><span>14 лет</span><hr>Успешного производства качественных средств</div>
+		<div><span>Более 500</span><hr>Знаковых клиентов: РЖД, Черкизово, Ариант, Ашан</div>
+		<div><span>ICO 9001</span><hr>Работа по системе менеджемента качества</div>
+	</div>
+</div>
+
+
+<div  id="firstBlock" class="block4">
+	<div class="block4inside">
+	<!--iframe width="560" height="315" src="https://www.youtube.com/embed/L9fXfiZzMJk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+	<div class="youtube" id="L9fXfiZzMJk" style="width: 100%; height: 315px;"></div>
+		<h2>Наши преимущества как дистрибьютора СпецСинтез</h2>
+		<p>Сотрудничая с нами Вы всегда можете рассчитывать на индивидуальный подход!</p>
+		<div class="block-gray graygraygray"><img src="{% static 'img/1.png' %}"><span>Отсрочка платежа</span><br>От 7 до 45 дней</div>
+		<div class="block-gray graygraygray"><img src="{% static 'img/4.png' %}"><span>Гарантия 100% качества</span><br>Поставляем только проверенную химию</div>
+		<div class="block-gray graygraygray"><img src="{% static 'img/2.png' %}"><span>Срок поставки</span><br>От 1 дня</div>
+		<div class="block-gray graygraygray"><img src="{% static 'img/5.png' %}"><span>Профессиональный подход</span><br>Подбираем средства под задачи предприятия</div>
+		<div class="block-gray graygraygray"><img src="{% static 'img/3.png' %}"><span>Дозирущие устройства</span><br>Предоставляем в бесплатную аренду дозаторы</div>
+		<div class="block-gray graygraygray"><img src="{% static 'img/6.png' %}"><span>Наличие товара</span><br>Постоянно в наличии во всех городах России</div>
+	</div>
+</div>
+
+
+<div id="kak-rabotaet-himiya" class="block-5">
+	<div class="block-5-inside">
+		<h2>Посмотрите, как работает наш продукт</h2>
+		
+		<div class="vid"><div class="name">Мойка посуды</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/f0lfdJyOAys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="f0lfdJyOAys" style="width: 100%; height: 270px;"></div></div>
+		
+		<div class="vid"><div class="name">Удаление жира и нагара</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/e_h_4l47jNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="e_h_4l47jNs" style="width: 100%; height: 270px;"></div></div>
+		<div class="vid"><div class="name">Мойка жирного пола</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/5yyykra9xxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="5yyykra9xxA" style="width: 100%; height: 270px;"></div></div>
+		
+		
+
+		
+	</div>
+</div>
+
+<div class="block-skidka">
+	<div class="block-skidka-inside">
+	
+	Отправьте заявку<br> и получите <span>скидку до 40%</span> на пробный заказ 
+	
+	</div>
+	
+	
+	<div class="forma-skidka">
+				<form name="form-2">
+			<input class="name" name="name" type="text" placeholder="Имя">
+			<input class="tell"  name="tell" type="text" placeholder="+7 (   )   -  -  ">
+			<input onclick="ga('send','event','submint','main_otr_zayavka'); yaCounter54989140.reachGoal('main_otr_zayavka'); return true;" class="feedback feedback3" name="send" type="button" value="Отправить запрос">
+			</form>
+		</div>
+	
+</div>
+
+
+<!--<div class="circle-catalog">
+<h2>КАТАЛОГ ПРОДУКЦИИ ПО ТИПУ ПРЕДРИЯТИЯ</h2>
+<div class="ccat"><a href="/horeca/"><img src="/img/block1right22.jpg"></a><a href="/horeca/"><div class="cchid">ДЛЯ РЕСТОРАНОВ, КАФЕ, БАРОВ</div></a></div>
+<div class="ccat"><a href="/gostinica/"><img src="/img/block1right23.jpg"></a><a href="/gostinica/"><div class="cchid">ДЛЯ ГОСТИНИЦ И ОТЕЛЕЙ</div></a></div>
+<div class="ccat"><a href="/hlebproizvodstvo/"><img src="/img/block1right28.jpg"></a><a href="/hlebproizvodstvo/"><div class="cchid">ДЛЯ ХЛЕБОЗАВОДОВ</div></a></div>
+<div class="ccat"><a href="/clining/"><img src="/img/block1right27.jpg"></a><a href="/clining/"><div class="cchid">ДЛЯ КОММЕРЧЕСКОГО КЛИНИНГА</div></a></div>
+<div class="ccat"><a href="/molokosovhoz/"><img src="/img/block1right29.jpg"></a><a href="/molokosovhoz/"><div class="cchid">ДЛЯ МОЛОЧНЫХ СОВХОЗОВ</div></a></div>
+<div class="ccat"><a href="/myasokombinat/"><img src="/img/block1right26.jpg"></a><a href="/myasokombinat/"><div class="cchid">ДЛЯ МЯСОКОМБИНАТОВ</div></a></div>
+<div class="ccat"><a href="/napitki/"><img src="/img/block1right36.jpg"></a><a href="/napitki/"><div class="cchid">ДЛЯ ПРОИЗВОДСТВА ПИВА И НАПИТКОВ</div></a></div>
+<div class="ccat"><a href="/svinocomplex/"><img src="/img/block1right30.png"></a><a href="/svinocomplex/"><div class="cchid">ДЛЯ СВИНОКОМПЛЕКСОВ</div></a></div>
+<div class="ccat"><a href="/vetklinika/"><img src="/img/block1right24.jpg"></a><a href="/vetklinika/"><div class="cchid">ДЛЯ ВЕТЕРИНАРНЫХ КЛИНИК</div></a></div>
+
+</div>-->
+
+
+<div class="block-2">
+	<div class="block-2-inside" id="katalog">
+	
+	<h2>Каталог продукции</h2>
+	
+		<div class="catalog">
+			<a href="#dlya-dezinsekcii"><img src="/img/icon/dlya-dezinsekcii.png"><br>Для дезинфекции</a>
+			<a href="#dlya-moiki-pola"><img src="/img/icon/dlya-moiki-pola.png"><br>Мойка и обезжиривание пола</a>
+			<a href="#dlya-uhioda-za-santehnikoy"><img src="/img/icon/dlya-uhioda-za-santehnikoy.png"><br>Для сантехники</a>
+			<a href="#dlya-moiki-posudy"><img src="/img/icon/dlya-moiki-posudy.png"><br>Мойка и отбеливание посуды</a>
+			<a href="#dlya-posydanoiki"><img src="/img/icon/dlya-posydanoiki.png"><br>Для посудомоечных машин</a>
+			<a href="#dlya-stirki"><img src="/img/icon/dlya-stirki.png"><br>Для стирки белья</a>
+			<a href="#dlya-udaleniya-zhira-i-nagara"><img src="/img/icon/dlya-udaleniya-zhira-i-nagara.png"><br>Для удаления жира и нагара</a>
+			<!--<a href="#dlya-stekol-i-zerkal"><img src="/img/icon/dlya-stekol-i-zerkal.png"><br>Для мойки стекол и зеркал</a>-->
+			<a href="#dlya-lichnoy-gigieny"><img src="/img/icon/dlya-lichnoy-gigieny.png"><br>Для личной гигиены персонала</a>
+			<a href="#dlya-ochiskti-zasorov-v-trubah"><img src="/img/icon/dlya-ochiskti-zasorov-v-trubah.png"><br>Для очистки засоров в трубах</a>	<a href="#dlya-chiskti-kovrov"><img src="/img/icon/dlya-chiskti-kovrov.png"><br>
+					Для чистки ковров</a> <a href="#dlya-sip-moiki-oborudovaniya"><img src="/img/icon/dlya-sip-moiki-oborudovaniya.png"><br>
+					СИП мойка оборудования</a>
+					
+					<a href="#dlya-moiki-inventorya"><img src="/img/icon/dlya-moiki-inventorya.png"><br>
+					Мойка инвентаря</a> <a href="#dlya-moiki-termooborudovaniya"><img src="/img/icon/dlya-moiki-termooborudovaniya.png"><br>
+					Мойка термооборудования</a>
+		<a href="#dlya-polomoechnyh-mashin"><img src="/img/icon/dlya-polomoechnyh-mashin.png"><br>
+					Для поломоечных машин</a> <a href="#yhod-za-vymenem"><img src="/img/icon/yhod-za-vymenem.png"><br>Уход за выменем</a> <a href="#dlya-uhioda-za-kopytamy"><img src="/img/icon/dlya-uhioda-za-kopytamy.png"><br>Уход за копытами</a>
+<a href="#ychzdrav"><img src="/img/icon/ychzdrav.png"><br>
+					Учреждения здравоохранения</a>
+					<a href="#dezkovrik"><img src="/img/icon/dezkovrik.png"><br>
+					Дезковрики</a>
+					<a href="#protivpyaten"><img src="/img/icon/klayksa.png"><br>
+					Удаление пятен</a>
+			
+		</div>
+	
+	</div>
+</div>
+
+
+
+<div class="block-22">
+	<div class="block-22-inside">
+	
+	<div class="leftblock">Закажите консультацию и узнайте,<br>сколько сможете экономить уже сейчас?<div class="button modal_btn3" onclick="ga('send','event','submint','main_zakaz_consult'); yaCounter54989140.reachGoal('main_zakaz_consult'); return true;">Заказать консультацию</div></div>
+	<div class="rightblock"></div>
+	
+	</div>
+</div>
+
+
+
+
+
+<div id="kak-zakazat-i-pochit" class="block-6">
+	<div class="block-6-inside">
+		<h2>Как заказать и получить?</h2>
+
+		<div class="howtake">
+			<div class="how1"><img src="{% static 'img/h1.png' %}"><br><span>1. Заявка</span><br>Отправьте нам заявку, и менеджер свяжется с Вами для обсуждения деталей заказа</div>
+			<div class="how1"><img src="{% static 'img/h2.png' %}"><br><span>2. Оплата</span><br>Мы работаем как с юридическими, так и с физическими лицами. Принимаем оплату на расчетный счет, наличными или банковской картой.</div>
+			<div class="how1"><img src="{% static 'img/h3.png' %}"><br><span>3. Доставка</span><br>Осуществляем доставку по всей России курьерской службой СДЭК, либо транспортными компаниями. Стоимость доставки рассчитывается индивидуально.</div>
+			<div class="how1"><img src="{% static 'img/h4.png' %}"><br><span>4. Получение</span><br>Для получения заказа необходимо:<br>
+Для юридических лиц: доверенность, либо печать предприятия.<br>
+Для физических лиц: пасспорт либо водительское удостоверение.
+</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+<div id="otzyvy" class="block-9">
+	<div class="block-9-inside">
+ 
+		<h2>Отзывы наших клиентов</h2>
+		<div class="vid">
+          <div class="name">Ресторан La Boucherie</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/GCeOuONapPc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="GCeOuONapPc" style="width: 100%; height: 270px;"></div>
+      </div>
+		
+		<div class="vid">
+          <div class="name">База отдыха "Монтажник"</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/jXClwECdJWo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="jXClwECdJWo" style="width: 100%; height: 270px;"></div>
+      </div>
+		
+		<div class="vid">
+          <div class="name">Пиццерия Pizza Makers</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/1e_WV847Yus" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="1e_WV847Yus" style="width: 100%; height: 270px;"></div>
+      </div>
+		
+		<div class="vid">
+          <div class="name">Ресторан Maximilians</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/fB47pfRkVkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="fB47pfRkVkQ" style="width: 100%; height: 270px;"></div>
+      </div>
+		
+		<div class="vid">
+          <div class="name">Кафе Кунжут</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/jXClwECdJWo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="jXClwECdJWo" style="width: 100%; height: 270px;"></div>
+      </div>
+		
+		<div class="vid"
+             ><div class="name">Spa-Hotel Garnet</div>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/6_90G7NuxAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+          <div class="youtube" id="6_90G7NuxAA" style="width: 100%; height: 270px;"></div>
+      </div>
+
+		
+	</div>
+</div>
+
+<div class="block-8">
+	<div class="block-8-inside">
+
+
+				<div class="otzyv-nash">
+					<div class="image">
+						<a data-fancybox="gallery" href="/img/otzyv2.jpg"><img src="/img/otzyv2_pre.jpg"></a>
+					</div>
+					<div class="cicata">
+						<span>ЗАО племенной завод "Рабитицы"</span><br>
+						Для промывки молокопроводов в своей работе мы используем СИП-БЛЮ 5 и СИП-РЕД 4
+					</div>
+				</div>
+
+				
+				
+				
+				
+				<div class="otzyv-nash">
+					<div class="image"><a data-fancybox="gallery" href="/img/otzyv/ashan.jpg"><img src="/img/otzyv/ashan_pre.jpg"></a>
+				</div>
+				<div class="cicata"><span>Ашан</span><br>В наших магазинах успешно используется вся линейка средств: 3Д Клин, Триосепт Микс П, Спец-Актив Д, Смарт-Профи, Шайн-Микс. Очень нравится эффективность средств и высокая экономия.</div>
+				</div>
+				
+				
+				<div class="otzyv-nash">
+					<div class="image"><a data-fancybox="gallery" href="/img/otzyv/myasoproduct.jpg"><img src="/img/otzyv/myasoproduct_pre.jpg"></a>
+				</div>
+				<div class="cicata"><span>ОАО Мясопродукты</span><br>С 2008 года работаем на средстве Триосепт Микс П, абсолютно устраивает по всем характеристикам.</div>
+				</div>
+				
+				
+				<div class="otzyv-nash">
+					<div class="image"><a data-fancybox="gallery" href="/img/otzyv/petrovskyu.jpg"><img src="/img/otzyv/petrovskyu_pre.jpg"></a>
+				</div>
+				<div class="cicata"><span>Петровские деликатесы</span><br>Коптильные камеры чистим только средством Антей Пена Плюс так как оно почти не имеет запаха, не нужно работать в масках, удаляет нагар и жир прекрасно. А с Триосептом-Микс проходим любые проверки, отличное средство для дезинфекции.</div>
+				</div>
+				
+				
+				
+				<div class="otzyv-nash">
+					<div class="image"><a data-fancybox="gallery" href="/img/otzyv/pkf-bazis.jpg"><img src="/img/otzyv/pkf-bazis_pre.jpg"></a>
+				</div>
+				<div class="cicata"><span>ПКФ Базис</span><br>Сразу после тестирования средств 3Д-Клин и Спец-Актив Д работаем только на них. Очень нравятся, нареканий нет.</div>
+				</div>
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv1.png"><img src="/img/otzyv1_pre.png"></a>
+	</div>
+		<div class="cicata"><span>Пиццерия "Додо Пицца"</span><br>В своей работе мы используем Клин-Оксайд, Триосепт-Аква, Антей Пена Плюс, Смарт-Профи</div>
+		
+	</div>
+	
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv4.png"><img src="/img/otzyv4_pre.png"></a>
+	</div>
+		<div class="cicata"><span>Пиццерия "Pizza Makers"</span><br>В своей работе используем средства: Триосепт-Экспресс, Антей Пена Плюс, ХозЛюкс, Смарт Профи.</div>
+		
+	</div>
+	
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv/rostiks1.jpg"><img src="/img/otzyv/rostiks1_pre.jpg"></a>
+	</div>
+		<div class="cicata"><span>Ростикс KFC</span><br>На нашем предприятии активно используются средства: Антей Пена Плюс, Триосепт Микс П, Шайн-Микс и 3Д-Клин.</div>
+	</div>
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv/rostinger1.jpg"><img src="/img/otzyv/rostinger1_pre.jpg"></a>
+	</div>
+		<div class="cicata"><span>Ростик Ресторантс</span><br>Наши посудомоечные машины мы заправляем только средствами Лайт-Блеск К и Лайт-Автомат. Такой расход и качество мойки мы смогли найти только в этих средствах.</div>
+	</div>
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv/vrestoran.jpg"><img src="/img/otzyv/vrestoran_pre.jpg"></a>
+	</div>
+		<div class="cicata"><span>Восточный ресторан</span><br>У нас посуда постоянно жирная из-за специфики ресторана, поэтому ХозЛюкс наше спасение, а Антей Пена Плюс это вообще какое то уникальное средство, почти не пахнет и классно нагар удаляет.</div>
+	</div>
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv/gustorestoran.jpg"><img src="/img/otzyv/gustorestoran_pre.jpg"></a>
+	</div>
+		<div class="cicata"><span>Иль Густо ресторан</span><br>Оценили качество работы средств СпецСинтез - порадовало качество, теперь планируем работать на данной марке химии.</div>
+	</div>
+	
+	
+	<div class="otzyv-nash">
+	<div class="image"><a data-fancybox="gallery" href="/img/otzyv/stolovyzal.jpg"><img src="/img/otzyv/stolovyzal_pre.jpg"></a>
+	</div>
+		<div class="cicata"><span>Столовый зал</span><br>В восторге от ХозЛюкса, так как у нас постоянные перебои с горячей водой, а ХозЛюкс отлично жир с посуды отмывает даже в холодной воде и что еще приятно, у наших мойщиц нет аллергии на средство.</div>
+	</div>
+	
+	</div>
+</div>
+
+<div class="block-10">
+	<div class="block-10-inside">
+<div class="rekvuzity">
+		<div class="text"><b>Наши реквизиты:</b><br>ООО «Эквип-Маркет» <br>
+ИНН 7447249449 <br>
+КПП 744701001 <br>
+ОГРН 1157447002492 <br>
+Директор: Губина Лилия Михайловна 
+</div>
+	</div>
+	</div>
+</div>
+
+
+<div class="block-10">
+	<div class="block-10-inside">
+	
+	<h2>В заключение</h2>
+	
+	<!--iframe width="900" height="488" src="https://www.youtube.com/embed/kuXj4KaFqYU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+	<div class="youtube" id="kuXj4KaFqYU" style="width: 100%; height: 488px;"></div>
+	</div>
+</div>
+
+
+
+<div id="contacts" class="block11">
+<div class="map-yandex"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3e32cbd79e6bfdb235fff31260043ed2f4a7580bea9505e880ec10842ba63b9b&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div>
+	
+		<div class="contact">
+		
+			<div class="numberss">
+			<div style="font-family:roboto;text-align:center;font-style:normal;font-weight:500; font-size:42px;">Контакты</div>
+			<p><a class="telefonnnt" href="tel:8 800 777 26 47">8 800 777 26 47</a><br>(Звонок по России бесплатный)</p>
+			<p><a href="mailto:igor@equip-master.ru">igor@equip-master.ru</a></p>
+			<a href="https://vk.com/specsintez74" target="_blank"><img src="/img/vk.png" alt="Вконтакте"></a>
+			</div>
+			
+			<div class="goroda">
+			<div style="font-family:roboto;text-align:center;font-style:normal;font-weight:500; font-size:29px;">Наши основные склады в регионах</div>
+			<ul>
+				<li>Санкт-Петербург, Жуковского, 57</li>
+				<li>Москва, Комсомольская площадь, 1А, стр. 1</li>
+				<li>Новосибирск, Большевистская ул., 101</li>
+				<li>Уфа, ул. 50-летия Октября, 16</li>
+				<li>Краснодар, ул. Пригородная, 177</li>
+				<li>Ростов-на-Дону, ул. Республиканская, 84</li>
+				<li>Нижний Новгород, ул. Родионова, 18</li>
+				<li>Казань, пр. Победы, 142</li>
+				<li>Самара, ул. Шверника, 15</li>
+				<li>Екатеринбург, ул. Восточная, 19А</li>
+				<li>Челябинск, Кыштымская, 19А</li>
+				</ul>
+			</div>
+			
+		</div>
+	
+</div>
+
+<div class="block966">
+	<div class="block7inside">
+		<center><p>ООО "ЭКВИП-МАРКЕТ" / ИНН: 7447249449 </p></center>
+		<p align="center"><a href="/politika-konfidentsialnosti/">Политика конфиденциальности</a></p>
+	</div>
+</div>
+
+
+
+</div>
+
+{% endblock %}
