@@ -5,30 +5,7 @@
 
 
   <div class="container">
-<DIV ID="toTop"> <img src="{% static 'img/top.png' %}"> </DIV>
-<div class="header">
-<a href="/"><img src="{% static 'img/horeca_logo.jpg' %}" alt="СпецСинтез" class="logo"></a>
-	
-<div class="sredstva"><img src="{% static 'img/specsintez_horeca.png' %}"></div>
-	
-	<div class="right-contacts">
-		<a href="tel: 88007772647"> 8 800 777 26 47</a><br>(Звонок по России бесплатный)</div>
-
-		
-		<div class="top-menu-horeca">
-		<ul>
-			<li><a href="#firstBlock">Почему мы?</a></li>
-			<li><a class="orangelink" href="#katalog">Каталог</a></li>
-			<li><a href="#otzyvy">Отзывы</a></li>
-			<li><a href="#kak-rabotaet-himiya">Как работает химия</a></li>
-			<li><a href="#kak-zakazat-i-pochit">Как заказать и получить</a></li>
-			<li class="noborder"><a href="#contacts">Контакты</a></li>
-		</ul>
-	</div>
-	
-	<div class="slogan">ПРОФЕССИОНАЛЬНЫЕ МОЮЩИЕ И ДЕЗИНФИЦИРУЮЩИЕ СРЕДСТВА ДЛЯ ПРЕДПРИЯТИЙ</div>
-		
-</div>
+{% include 'header_inner.html' %}
 <div class="block1">
 	<div class="left"><p><span>Сэкономьте до 40% бюджета и времени на уборке и дезинфекции.</span></p>
 	<div class="ulleft"><div class="leftul">Стоимость готового раствора от 3&nbsp;копеек</div><div class="leftul">Выдержка средств&nbsp;на поверхности от 1 минуты</div><div class="leftul">Бесплатная аренда дозаторов</div><div class="leftul">Бесплатная доставка средств до дверей</div></div>
@@ -197,31 +174,13 @@ $(document).ready(function () {
 	<h2>Каталог продукции</h2>
 	
 		<div class="catalog">
-			<a href="#dlya-dezinsekcii"><img src="/img/icon/dlya-dezinsekcii.png"><br>Для дезинфекции</a>
-			<a href="#dlya-moiki-pola"><img src="/img/icon/dlya-moiki-pola.png"><br>Мойка и обезжиривание пола</a>
-			<a href="#dlya-uhioda-za-santehnikoy"><img src="/img/icon/dlya-uhioda-za-santehnikoy.png"><br>Для сантехники</a>
-			<a href="#dlya-moiki-posudy"><img src="/img/icon/dlya-moiki-posudy.png"><br>Мойка и отбеливание посуды</a>
-			<a href="#dlya-posydanoiki"><img src="/img/icon/dlya-posydanoiki.png"><br>Для посудомоечных машин</a>
-			<a href="#dlya-stirki"><img src="/img/icon/dlya-stirki.png"><br>Для стирки белья</a>
-			<a href="#dlya-udaleniya-zhira-i-nagara"><img src="/img/icon/dlya-udaleniya-zhira-i-nagara.png"><br>Для удаления жира и нагара</a>
-			<!--<a href="#dlya-stekol-i-zerkal"><img src="/img/icon/dlya-stekol-i-zerkal.png"><br>Для мойки стекол и зеркал</a>-->
-			<a href="#dlya-lichnoy-gigieny"><img src="/img/icon/dlya-lichnoy-gigieny.png"><br>Для личной гигиены персонала</a>
-			<a href="#dlya-ochiskti-zasorov-v-trubah"><img src="/img/icon/dlya-ochiskti-zasorov-v-trubah.png"><br>Для очистки засоров в трубах</a>	<a href="#dlya-chiskti-kovrov"><img src="/img/icon/dlya-chiskti-kovrov.png"><br>
-					Для чистки ковров</a> <a href="#dlya-sip-moiki-oborudovaniya"><img src="/img/icon/dlya-sip-moiki-oborudovaniya.png"><br>
-					СИП мойка оборудования</a>
-					
-					<a href="#dlya-moiki-inventorya"><img src="/img/icon/dlya-moiki-inventorya.png"><br>
-					Мойка инвентаря</a> <a href="#dlya-moiki-termooborudovaniya"><img src="/img/icon/dlya-moiki-termooborudovaniya.png"><br>
-					Мойка термооборудования</a>
-		<a href="#dlya-polomoechnyh-mashin"><img src="/img/icon/dlya-polomoechnyh-mashin.png"><br>
-					Для поломоечных машин</a> <a href="#yhod-za-vymenem"><img src="/img/icon/yhod-za-vymenem.png"><br>Уход за выменем</a> <a href="#dlya-uhioda-za-kopytamy"><img src="/img/icon/dlya-uhioda-za-kopytamy.png"><br>Уход за копытами</a>
-<a href="#ychzdrav"><img src="/img/icon/ychzdrav.png"><br>
-					Учреждения здравоохранения</a>
-					<a href="#dezkovrik"><img src="/img/icon/dezkovrik.png"><br>
-					Дезковрики</a>
-					<a href="#protivpyaten"><img src="/img/icon/klayksa.png"><br>
-					Удаление пятен</a>
-			
+               {% for cat in all_cats %}
+						<a href="{% url 'catalog' cat.name_slug %}"><img src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
+
+
+                    {% endfor %}
+
+
 		</div>
 	
 	</div>
@@ -426,57 +385,6 @@ $(document).ready(function () {
 </div>
 
 
-<div class="block-10">
-	<div class="block-10-inside">
-	
-	<h2>В заключение</h2>
-	
-	<!--iframe width="900" height="488" src="https://www.youtube.com/embed/kuXj4KaFqYU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
-	<div class="youtube" id="kuXj4KaFqYU" style="width: 100%; height: 488px;"></div>
-	</div>
-</div>
-
-
-
-<div id="contacts" class="block11">
-<div class="map-yandex"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3e32cbd79e6bfdb235fff31260043ed2f4a7580bea9505e880ec10842ba63b9b&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script></div>
-	
-		<div class="contact">
-		
-			<div class="numberss">
-			<div style="font-family:roboto;text-align:center;font-style:normal;font-weight:500; font-size:42px;">Контакты</div>
-			<p><a class="telefonnnt" href="tel:8 800 777 26 47">8 800 777 26 47</a><br>(Звонок по России бесплатный)</p>
-			<p><a href="mailto:igor@equip-master.ru">igor@equip-master.ru</a></p>
-			<a href="https://vk.com/specsintez74" target="_blank"><img src="/img/vk.png" alt="Вконтакте"></a>
-			</div>
-			
-			<div class="goroda">
-			<div style="font-family:roboto;text-align:center;font-style:normal;font-weight:500; font-size:29px;">Наши основные склады в регионах</div>
-			<ul>
-				<li>Санкт-Петербург, Жуковского, 57</li>
-				<li>Москва, Комсомольская площадь, 1А, стр. 1</li>
-				<li>Новосибирск, Большевистская ул., 101</li>
-				<li>Уфа, ул. 50-летия Октября, 16</li>
-				<li>Краснодар, ул. Пригородная, 177</li>
-				<li>Ростов-на-Дону, ул. Республиканская, 84</li>
-				<li>Нижний Новгород, ул. Родионова, 18</li>
-				<li>Казань, пр. Победы, 142</li>
-				<li>Самара, ул. Шверника, 15</li>
-				<li>Екатеринбург, ул. Восточная, 19А</li>
-				<li>Челябинск, Кыштымская, 19А</li>
-				</ul>
-			</div>
-			
-		</div>
-	
-</div>
-
-<div class="block966">
-	<div class="block7inside">
-		<center><p>ООО "ЭКВИП-МАРКЕТ" / ИНН: 7447249449 </p></center>
-		<p align="center"><a href="/politika-konfidentsialnosti/">Политика конфиденциальности</a></p>
-	</div>
-</div>
 
 
 

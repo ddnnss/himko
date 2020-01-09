@@ -2,87 +2,20 @@
 <div id="hidden_menu">
 	<div class="top-menu-horeca">
 				<ul>
-					<li>
-						<a href="#firstBlock">Почему мы?</a>
-					</li>
-					<li>
-						<a class="orangelink" href="#katalog">Каталог</a>
-					</li>
-					<li>
-						<a href="#otzyvy">Отзывы</a>
-					</li>
-					<li>
-						<a href="#kak-rabotaet-himiya">Как работает химия</a>
-					</li>
-					<li>
-						<a href="#kak-zakazat-i-pochit">Как заказать и получить</a>
-					</li>
-					<li class="noborder">
-						<a href="#contacts">Контакты</a>
-					</li>
+					<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
+			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
+			<li><a class="{{ work_active }}" href="{% url 'how_it_works' %}">Как работает химия</a></li>
+			<li><a class="{{ order_active }}" href="{% url 'order_delivery' %}">Как заказать и получить</a></li>
+			<li class="noborder"><a class="{{ contacts_active }}" href="{% url 'contacts' %}">Контакты</a></li>
 				</ul>
 			</div>
     	<div class="top-menu-horeca">
 				<ul>
-						<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
-					</li>	<li>
-						<a  href="#katalog">Каталог</a>
+                    {% for cat in all_cats %}
+						<li {% if forloop.last %}class="noborder"{% endif %}>
+						<a  href="{% url 'catalog' cat.name_slug %}">{{ cat.name }}</a>
 					</li>
+                    {% endfor %}
 				</ul>
 			</div>
 

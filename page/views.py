@@ -1,37 +1,88 @@
 from django.shortcuts import render
-
+from item.models import *
 def index(request):
+    index_active='orangelink'
     show_tags = True
     title = 'Главная'
     description = ''
     keywords = ''
-
+    s_key = request.session.session_key
+    print('guest')
+    if not s_key:
+        request.session.cycle_key()
+    print(s_key)
+    all_cats = Category.objects.all()
 
     return render(request, 'page/index.html', locals())
 
-def test3(request):
-    resp = req.get("http://specsintez-pro.ru/")
 
-    soup = BeautifulSoup(resp.text, 'html')
-    main_structure = {}
-    cats = []
-    subcats = {}
-    all_cats = soup.find_all("div", class_='block-catalog')
+def catalog(request, cat_slug):
+    cat = Category.objects.get(name_slug=cat_slug)
+    all_items = Item.objects.filter(category=cat)
+    all_cats = Category.objects.all()
+    return render(request, 'page/catalog.html', locals())
 
-    for cat in all_cats:
-        cat_slug = cat.get('id')
-        print(cat_slug)
-        cat_name = cat.find('h2').text.capitalize()
-        print(cat_name)
-        for item in cat.find_all('div',class_='sredstvo'):
-            prices = []
-            image = item.find('img').get('src')
-            print(image)
-            item_text1 = item.find('div', id='readmore').find('p').prettify(formatter="html")
-            print(item_text1)
-            item_text2 = item.find('div', id='readmore').find('div').prettify(formatter="html")
-            print(item_text2)
-            item_prices = item.find('div', class_='sr-text').find_all('span')
-            for price in item_prices:
-                prices.append(price.text)
-            print(prices)
+def about_us(request):
+    about_active = 'orangelink'
+    return render(request, 'page/about.html', locals())
+
+def contacts(request):
+    contacts_active = 'orangelink'
+    return render(request, 'page/contacts.html', locals())
+
+def how_it_works(request):
+    work_active = 'orangelink'
+    return render(request, 'page/how_it_works.html', locals())
+
+def order_delivery(request):
+    order_active = 'orangelink'
+    return render(request, 'page/order_delivery.html', locals())
+
+def reviews(request):
+    reviews_active = 'orangelink'
+    return render(request, 'page/reviews.html', locals())
+
+
+"""
+
+
+
+wb = load_workbook(filename='c:/sites/items1.xlsx')
+    sheet = wb.active
+
+    max_row = sheet.max_row
+
+    max_column = sheet.max_column
+    for i in range(1, max_row + 1):
+        cat = sheet.cell(row=i, column=1).value
+        print(cat)
+        name = sheet.cell(row=i, column=2).value
+        print(name)
+        image = sheet.cell(row=i, column=3).value
+        text1 = sheet.cell(row=i, column=4).value
+        text2 = sheet.cell(row=i, column=5).value
+        price = sheet.cell(row=i, column=6).value
+        maincat = Category.objects.get(name_slug=cat)
+        print(maincat)
+        print(image)
+        item = Item.objects.create(
+                            name=name,
+                            image='item/{}'.format(image),
+                            text1=text1,
+                            text2=text2,
+                            price=price)
+        item.category.add(maincat)
+
+
+wb = load_workbook(filename='c:/sites/cats.xlsx')
+    sheet = wb.active
+
+    max_row = sheet.max_row
+
+    max_column = sheet.max_column
+    for i in range(1, max_row + 1):
+
+        print(sheet.cell(row=i, column=1).value)
+        print(sheet.cell(row=i, column=2).value)
+        Category.objects.create(name=sheet.cell(row=i, column=1).value,name_slug=sheet.cell(row=i, column=2).value)
+"""

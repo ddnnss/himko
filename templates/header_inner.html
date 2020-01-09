@@ -1,0 +1,24 @@
+{% load static %}
+<DIV ID="toTop"> <img src="{% static 'img/top.png' %}"> </DIV>
+<div class="header">
+<a href="/"><img src="{% static 'img/horeca_logo.jpg' %}" alt="СпецСинтез" class="logo"></a>
+
+<div class="sredstva"><img src="{% static 'img/specsintez_horeca.png' %}"></div>
+
+	<div class="right-contacts">
+		<a href="tel: 88007772647"> 8 800 777 26 47</a><br>(Звонок по России бесплатный)</div>
+
+
+		<div class="top-menu-horeca">
+		<ul>
+			<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
+			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
+			<li><a class="{{ work_active }}" href="{% url 'how_it_works' %}">Как работает химия</a></li>
+			<li><a class="{{ order_active }}" href="{% url 'order_delivery' %}">Как заказать и получить</a></li>
+			<li class="noborder"><a class="{{ contacts_active }}" href="{% url 'contacts' %}">Контакты</a></li>
+		</ul>
+	</div>
+
+	<div class="slogan">ПРОФЕССИОНАЛЬНЫЕ МОЮЩИЕ И ДЕЗИНФИЦИРУЮЩИЕ СРЕДСТВА ДЛЯ ПРЕДПРИЯТИЙ</div>
+
+</div>

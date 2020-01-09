@@ -1,0 +1,60 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        {% include 'header_inner.html' %}
+
+        <div id="dlya-dezinsekcii" class="block-catalog">
+            <div class="block-catalog-inside">
+
+                <h2>{{ cat.name }}</h2>
+
+                {% for item in all_items %}
+                     <div class="sredstvo"><img src="{{ item.image.url }}">
+                    <div class="sr-text"><span>{{ item.name }}</span>
+                        <div id="readmore">
+                            {{ item.text1 | safe }}
+
+                            <p><a href="javascript: collapsElement('read_more_{{ item.id }}')" style="text-decoration:none !important;    color: #2196f3;
+    border-bottom: 1px solid #2196f3;">Подробнее</a></p>
+
+                            <div id="read_more_{{ item.id }}" style="display: none;">
+                                {{ item.text2 | safe }}
+                            </div>
+                        </div>
+
+
+                        <span>392 руб / №120 банка</span>
+
+                        <div class="buttonorange"><a href="#katalog">Вернуться в каталог</a></div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn">Заказать</div><div class="warningeb">Нашли дешевле? Поторгуемся?</div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn redmodalv">Получить скидку</div>
+
+
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+        <div class="block-2">
+            <div class="block-2-inside" id="katalog">
+
+                <h2>Каталог продукции</h2>
+
+                <div class="catalog">
+                    {% for cat in all_cats %}
+                        <a href="{% url 'catalog' cat.name_slug %}"><img src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
