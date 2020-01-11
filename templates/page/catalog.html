@@ -1,5 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load mytags %}
 
 {% block content %}
     <div class="container">
@@ -24,10 +25,23 @@
                             </div>
                         </div>
 
+                        {{ item.price | prices | safe}}
 
-                        <span>392 руб / №120 банка</span>
 
-                        <div class="buttonorange"><a href="#katalog">Вернуться в каталог</a></div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn">Заказать</div><div class="warningeb">Нашли дешевле? Поторгуемся?</div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn redmodalv">Получить скидку</div>
+                        <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button " style="font-weight: 300;
+    font-style: normal;
+    cursor: pointer;
+    width: 67px;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 5px 40px;
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    float: right;
+    margin: 0;">Заказать</div><div class="warningeb">Нашли дешевле? Поторгуемся?</div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn redmodalv">Получить скидку</div>
 
 
 

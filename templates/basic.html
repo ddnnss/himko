@@ -23,6 +23,8 @@
 	<link rel='stylesheet' media='(max-width: 1024px)' href='{% static 'css/mobile.css'%}' />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="{% static 'js/slick.min.js' %}"></script>
+       <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/amaran.min.css' %}">
 
 
   <link rel="stylesheet" href="{% static 'css/slider.css' %}" type="text/css">
@@ -99,6 +101,7 @@ element.hide();
 });
 });
 	</script>
+<form id="dummy_form">{% csrf_token %}</form>
 {% include 'header.html' %}
 
 {% block content %}

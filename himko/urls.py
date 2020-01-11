@@ -10,7 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('page.urls')),
     # path('item/', include('item.urls')),
-    # path('cart/', include('cart.urls')),
+    path('cart/', include('cart.urls')),
     # path('user/', include('customuser.urls')),
     # url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 

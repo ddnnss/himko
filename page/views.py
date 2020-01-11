@@ -24,25 +24,33 @@ def catalog(request, cat_slug):
 
 def about_us(request):
     about_active = 'orangelink'
+    all_cats = Category.objects.all()
     return render(request, 'page/about.html', locals())
 
 def contacts(request):
     contacts_active = 'orangelink'
+    all_cats = Category.objects.all()
     return render(request, 'page/contacts.html', locals())
 
 def how_it_works(request):
     work_active = 'orangelink'
+    all_cats = Category.objects.all()
     return render(request, 'page/how_it_works.html', locals())
 
 def order_delivery(request):
     order_active = 'orangelink'
+    all_cats = Category.objects.all()
     return render(request, 'page/order_delivery.html', locals())
 
 def reviews(request):
     reviews_active = 'orangelink'
+    all_cats = Category.objects.all()
     return render(request, 'page/reviews.html', locals())
 
-
+def cart(request):
+    cart_active = 'orangelink'
+    all_cats = Category.objects.all()
+    return render(request, 'page/cart.html', locals())
 """
 
 

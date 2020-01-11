@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        {% include 'header_inner.html' %}
+
+<div class="block-dezkovriki">
+          <div class="overtable">
+            <table>
+                <tbody><tr>
+                    <th></th>
+                    <th>Название</th>
+                    <th>Количество</th>
+                </tr>
+                {% for i in all_items_in_cart %}
+                <tr>
+                    <td><img width="200" src="{{ i.item.image.url }}" alt=""></td>
+                    <td>{{ i.item.name }}</td>
+                    <td>{{ i.number }}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody></table>
+        </div>
+</div>
+
+    </div>
+{% endblock %}
