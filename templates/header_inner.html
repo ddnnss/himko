@@ -16,10 +16,11 @@
 		<ul>
 			<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
 			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
-			<li><a class="{{ work_active }}" href="{% url 'how_it_works' %}">Как работает химия</a></li>
-			<li><a class="{{ order_active }}" href="{% url 'order_delivery' %}">Как заказать и получить</a></li>
-			<li ><a class="{{ contacts_active }}" href="{% url 'contacts' %}">Контакты</a></li>
-            <li class="noborder"><a class="{{ cart_active }}" href="{% url 'cart' %}">Корзина <span id="cart_count" style="    background: #8da82e;
+            <li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Каталог</a></li>
+
+
+
+            <li class="noborder"><a class="{{ cart_active }}" href="{% url 'cart' %}"> Предварительная Заявка <span id="cart_count" style="    background: #8da82e;
     padding: 5px 10px;
     border-radius: 50%;">{{ count_items_in_cart }}</span> </a></li>
 		</ul>

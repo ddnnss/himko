@@ -121,23 +121,24 @@ $(document).ready(function () {
 </div>-->
 
 
-<div class="block-2">
-	<div class="block-2-inside" id="katalog">
-	
-	<h2>Каталог продукции</h2>
-	
-		<div class="catalog">
-               {% for cat in all_cats %}
-						<a href="{% url 'catalog' cat.name_slug %}"><img src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
+<div id="kak-rabotaet-himiya" class="block-5">
+	<div class="block-5-inside">
+		<h2>Посмотрите, как работает наш продукт</h2>
+
+		<div class="vid"><div class="name">Мойка посуды</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/f0lfdJyOAys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="f0lfdJyOAys" style="width: 100%; height: 270px;"></div></div>
+
+		<div class="vid"><div class="name">Удаление жира и нагара</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/e_h_4l47jNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="e_h_4l47jNs" style="width: 100%; height: 270px;"></div></div>
+		<div class="vid"><div class="name">Мойка жирного пола</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/5yyykra9xxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+		<div class="youtube" id="5yyykra9xxA" style="width: 100%; height: 270px;"></div></div>
 
 
-                    {% endfor %}
 
 
-		</div>
-	
 	</div>
 </div>
+
 
 
 
@@ -149,6 +150,25 @@ $(document).ready(function () {
 	
 	</div>
 </div>
+
+    <div id="kak-zakazat-i-pochit" class="block-6">
+            <div class="block-6-inside">
+                <h2>Как заказать и получить?</h2>
+
+                <div class="howtake">
+                    <div class="how1"><img src="{% static 'img/h1.png' %}"><br><span>1. Заявка</span><br>Отправьте нам заявку, и менеджер свяжется с Вами для обсуждения деталей заказа</div>
+                    <div class="how1"><img src="{% static 'img/h2.png' %}"><br><span>2. Оплата</span><br>Мы работаем как с юридическими, так и с физическими лицами. Принимаем оплату на расчетный счет, наличными или банковской картой.</div>
+                    <div class="how1"><img src="{% static 'img/h3.png' %}"><br><span>3. Доставка</span><br>Осуществляем доставку по всей России курьерской службой СДЭК, либо транспортными компаниями. Стоимость доставки рассчитывается индивидуально.</div>
+                    <div class="how1"><img src="{% static 'img/h4.png' %}"><br><span>4. Получение</span><br>Для получения заказа необходимо:<br>
+                        Для юридических лиц: доверенность, либо печать предприятия.<br>
+                        Для физических лиц: пасспорт либо водительское удостоверение.
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
 
 
 
