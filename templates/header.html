@@ -1,19 +1,23 @@
 {% load static %}
 <div id="hidden_menu">
 	<div class="top-menu-horeca">
-				<ul>
-					<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
+
+				<ul style="    border-bottom: 2px solid #ffab29;
+    padding: 10px 0;">
+			<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
 			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
-			<li><a class="{{ work_active }}" href="{% url 'how_it_works' %}">Как работает химия</a></li>
-			<li><a class="{{ order_active }}" href="{% url 'order_delivery' %}">Как заказать и получить</a></li>
-			<li class="noborder"><a class="{{ contacts_active }}" href="{% url 'contacts' %}">Контакты</a></li>
-				</ul>
+            <li><a class="{{ catalog_active }}" href="{% url 'catalog' all %}">Каталог</a></li>
+            <li class="noborder"><a class="{{ cart_active }}" href="{% url 'cart' %}"> Предварительная Заявка <span id="cart_count1" style="    background: #8da82e;
+    padding: 5px 10px;
+    border-radius: 50%;">{{ count_items_in_cart }}</span> </a></li>
+		</ul>
+
 			</div>
     	<div class="top-menu-horeca">
-				<ul>
+				<ul style="padding-top: 10px">
                     {% for cat in all_cats %}
-						<li {% if forloop.last %}class="noborder"{% endif %}>
-						<a  href="{% url 'catalog' cat.name_slug %}">{{ cat.name }}</a>
+						<li class="noborder">
+						<a style="padding: 10px 15px"  href="{% url 'catalog' cat.name_slug %}">{{ cat.name }}</a>
 					</li>
                     {% endfor %}
 				</ul>

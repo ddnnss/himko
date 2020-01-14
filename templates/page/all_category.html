@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        {% include 'header_inner.html' %}
+       <div class="block-2">
+            <div class="block-2-inside" id="katalog">
+
+                <h2>Каталог продукции</h2>
+
+                <div class="catalog" style="display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); grid-gap: 20px;">
+                    {% for cat in all_cats %}
+                        <a style="width: 100%;height: auto;margin: 0" href="{% url 'catalog' cat.name_slug %}"><img style="margin-bottom: 10px" src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </div>
+    <div class="block-22">
+	<div class="block-22-inside">
+
+	<div class="leftblock">Закажите консультацию и узнайте,<br>сколько сможете экономить уже сейчас?<div class="button modal_btn3" onclick="ga('send','event','submint','main_zakaz_consult'); yaCounter54989140.reachGoal('main_zakaz_consult'); return true;">Заказать консультацию</div></div>
+	<div class="rightblock"></div>
+
+	</div>
+</div>
+    </div>
+{% endblock %}

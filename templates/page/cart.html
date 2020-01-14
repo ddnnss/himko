@@ -1,29 +1,83 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% load mytags %}
 
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}
+    <div></div>
 
-<div class="block-dezkovriki">
-          <div class="overtable">
-            <table>
-                <tbody><tr>
-                    <th></th>
-                    <th>Название</th>
-                    <th>Количество</th>
-                </tr>
-                {% for i in all_items_in_cart %}
-                <tr>
-                    <td><img width="200" src="{{ i.item.image.url }}" alt=""></td>
-                    <td>{{ i.item.name }}</td>
-                    <td>{{ i.number }}</td>
-                </tr>
-                {% endfor %}
 
-                </tbody></table>
+        <div class="">
+            <div class="">
+                <table>
+                    <tbody><tr>
+                        <th></th>
+                        <th>Название</th>
+                        <th>Количество</th>
+                    </tr>
+                    {% for i in all_items_in_cart %}
+                        <tr>
+                            <td><img width="200" src="{{ i.item.image.url }}" alt=""></td>
+                            <td>{{ i.item.name }}</td>
+                            <td class="item">
+                                <div class="">
+                                         <div class="">
+                                    <p>количество</p>
+                                    <input type="number" min="1" value="{{ i.number }}" onchange="calc()">
+                                </div>
+                                x
+                                <div class="">
+                                    <p>Объем</p>
+                                    <select data-name="{{ i.item.name }}" onchange="calc()">
+                                        {{ i.item.price | prices_select  |safe}}
+                                    </select>
+                                </div>
+
+                                <span>0</span> руб
+                                </div>
+
+
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td>Итого</td>
+                        <td><span id="total">0</span> руб</td>
+
+                    </tr>
+
+                    </tbody></table>
+            </div>
         </div>
-</div>
 
     </div>
+
+    <script>
+        $( document ).ready(function() {
+            console.log( "ready!" );
+
+            //a[0].lastElementChild.options[a[0].lastElementChild.selectedIndex].value;
+            calc()
+        });
+
+        function calc() {
+            let totalPrice = 0
+            items = document.getElementsByClassName('item')
+            for (x of items){
+                price = parseInt(x.getElementsByTagName('select')[0].options[x.getElementsByTagName('select')[0].selectedIndex].value)
+                console.log(price)
+                number = parseInt(x.getElementsByTagName('input')[0].value)
+                console.log(number)
+                total = x.getElementsByTagName('span')[0]
+                total.innerText= price * number
+                totalPrice += price * number
+            }
+            console.log(total)
+            $('#total').text(totalPrice)
+        }
+    </script>
+
 {% endblock %}

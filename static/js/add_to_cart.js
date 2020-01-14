@@ -21,6 +21,7 @@ function add_to_cart(el) {
 
             $('.cart-items').css('display','inline-block')
             $('#cart_count').text(data.total_items_in_cart)
+             $('#cart_count1').text(data.total_items_in_cart)
 
 
 

@@ -17,10 +17,16 @@ def index(request):
 
 
 def catalog(request, cat_slug):
-    cat = Category.objects.get(name_slug=cat_slug)
-    all_items = Item.objects.filter(category=cat)
+    catalog_active = 'orangelink'
     all_cats = Category.objects.all()
-    return render(request, 'page/catalog.html', locals())
+    if cat_slug !='all':
+        cat = Category.objects.get(name_slug=cat_slug)
+        all_items = Item.objects.filter(category=cat)
+
+        return render(request, 'page/catalog.html', locals())
+    else:
+
+        return render(request, 'page/all_category.html', locals())
 
 def about_us(request):
     about_active = 'orangelink'
