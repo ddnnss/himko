@@ -1,157 +1,157 @@
 {% extends 'basic.html' %}
 {% load static %}
 
- {% block content %}
+{% block content %}
 
 
-  <div class="container">
-{% include 'header_inner.html' %}
-<div class="block1">
-	<div class="left"><p><span>Сэкономьте до 40% бюджета и времени на уборке и дезинфекции.</span></p>
-	<div class="ulleft"><div class="leftul">Стоимость готового раствора от 3&nbsp;копеек</div><div class="leftul">Выдержка средств&nbsp;на поверхности от 1 минуты</div><div class="leftul">Бесплатная аренда дозаторов</div><div class="leftul">Бесплатная доставка средств до дверей</div></div>
-	
-	<div class="forma-skidka2">
-		<div class="forma-title">Узнать подробнее</div>
-				<form name="form-2">
-			<input class="name" name="name" type="text" placeholder="Имя">
-			<input class="tell"  name="tell" type="text" placeholder="+7 (   )   -  -  ">
-			<input onclick="ga('send','event','submint','main_consult'); yaCounter54989140.reachGoal('main_consult'); return true;" class="feedback feedback3" name="send" type="button" value="Получить консультацию">
-			</form>
-		</div>
-	
-	</div>
-	<div class="right">
-	
-	<div class="flex-container">
-	<div class="flexslider">
-		<ul class="slides">
-			<li>
-				<img src="{% static 'img/block1right22.jpg' %}">
-			</li>
-			
-			<li>
-				<img src="{% static 'img/block1right23.jpg' %}">
-			</li>
-			
-			<li>
-				<img src="{% static 'img/block1right28.jpg' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right27.jpg' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right29.jpg' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right26.jpg' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right36.jpg' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right30.png' %}">
-			</li>
-			<li>
-				<img src="{% static 'img/block1right24.jpg' %}">
-			</li>
-			
-		</ul>
-	</div>
-</div>
+    <div class="container">
+        {% include 'header_inner.html' %}
+        <div class="block1">
+            <div class="left"><p><span>Сэкономьте до 40% бюджета и времени на уборке и дезинфекции.</span></p>
+                <div class="ulleft"><div class="leftul">Стоимость готового раствора от 3&nbsp;копеек</div><div class="leftul">Выдержка средств&nbsp;на поверхности от 1 минуты</div><div class="leftul">Бесплатная аренда дозаторов</div><div class="leftul">Бесплатная доставка средств до дверей</div></div>
 
-<script>
-$(document).ready(function () {
-	$('.flexslider').flexslider({
-		animation: 'fade',
-		animSpeed: '500',
-		autoplay: 'true',
-		controlsContainer: '.flexslider'
-	});
-});
-</script>
-	
-	</div>
-</div>
+                <div class="forma-skidka2">
+                    <div class="forma-title">Узнать подробнее</div>
+                    <form name="form-2">
+                        <input class="name" name="name" type="text" placeholder="Имя">
+                        <input class="tell"  name="tell" type="text" placeholder="+7 (   )   -  -  ">
+                        <input onclick="ga('send','event','submint','main_consult'); yaCounter54989140.reachGoal('main_consult'); return true;" class="feedback feedback3" name="send" type="button" value="Получить консультацию">
+                    </form>
+                </div>
 
+            </div>
+            <div class="right">
 
+                <div class="flex-container">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="{% static 'img/block1right22.jpg' %}">
+                            </li>
 
+                            <li>
+                                <img src="{% static 'img/block1right23.jpg' %}">
+                            </li>
 
+                            <li>
+                                <img src="{% static 'img/block1right28.jpg' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right27.jpg' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right29.jpg' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right26.jpg' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right36.jpg' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right30.png' %}">
+                            </li>
+                            <li>
+                                <img src="{% static 'img/block1right24.jpg' %}">
+                            </li>
 
-<div  class="block4">
-	<div class="block4inside">
-		<h2>Преимущества продукции СпецСинтез</h2>
-		<div class="block-gray"><img src="{% static 'img/h-1.png' %}"><span>Отсутствие токсичности</span><br>Средства не имеют резкого запаха, можно работать без защитных масок</div>
-		<div class="block-gray"><img src="{% static 'img/h-2.png' %}"><span>Срок хранения</span><br>Концентраты - до 5 лет, готовые растворы до 30 суток.</div>
-		<div class="block-gray"><img src="{% static 'img/h-3.png' %}"><span>Универсальность</span><br>Средства работают в воде любой жесткости, при температуре от 5 град</div>
-		<div class="block-gray"><img src="{% static 'img/h-4.png' %}"><span>100% ​эффективность</span><br>Высокая моющая <br>и антисептическая способность</div>
-		<div class="block-gray"><img src="{% static 'img/h-5.png' %}"><span>Безопасность</span><br>Все средства биоразлогаемы и имеют 4 класс опасности</div>
-		<div class="block-gray"><img src="{% static 'img/h-6.png' %}"><span>Документация</span><br>Имеется вся документация на продукцию, в т.ч. для прохождения HASSP</div>
-	</div>
-</div>
+                        </ul>
+                    </div>
+                </div>
 
+                <script>
+                    $(document).ready(function () {
+                        $('.flexslider').flexslider({
+                            animation: 'fade',
+                            animSpeed: '500',
+                            autoplay: 'true',
+                            controlsContainer: '.flexslider'
+                        });
+                    });
+                </script>
 
-<div class="block-black">
-	<div class="block-black-inside">
-		<div><span>85 регионов РФ</span><hr>Продукция представлена во всех регионах России</div>
-		<div><span>14 лет</span><hr>Успешного производства качественных средств</div>
-		<div><span>Более 500</span><hr>Знаковых клиентов: РЖД, Черкизово, Ариант, Ашан</div>
-		<div><span>ICO 9001</span><hr>Работа по системе менеджемента качества</div>
-	</div>
-</div>
+            </div>
+        </div>
 
 
 
 
 
+        <div  class="block4">
+            <div class="block4inside">
+                <h2>Преимущества продукции СпецСинтез</h2>
+                <div class="block-gray"><img src="{% static 'img/h-1.png' %}"><span>Отсутствие токсичности</span><br>Средства не имеют резкого запаха, можно работать без защитных масок</div>
+                <div class="block-gray"><img src="{% static 'img/h-2.png' %}"><span>Срок хранения</span><br>Концентраты - до 5 лет, готовые растворы до 30 суток.</div>
+                <div class="block-gray"><img src="{% static 'img/h-3.png' %}"><span>Универсальность</span><br>Средства работают в воде любой жесткости, при температуре от 5 град</div>
+                <div class="block-gray"><img src="{% static 'img/h-4.png' %}"><span>100% ​эффективность</span><br>Высокая моющая <br>и антисептическая способность</div>
+                <div class="block-gray"><img src="{% static 'img/h-5.png' %}"><span>Безопасность</span><br>Все средства биоразлогаемы и имеют 4 класс опасности</div>
+                <div class="block-gray"><img src="{% static 'img/h-6.png' %}"><span>Документация</span><br>Имеется вся документация на продукцию, в т.ч. для прохождения HASSP</div>
+            </div>
+        </div>
 
 
-
-<!--<div class="circle-catalog">
-<h2>КАТАЛОГ ПРОДУКЦИИ ПО ТИПУ ПРЕДРИЯТИЯ</h2>
-<div class="ccat"><a href="/horeca/"><img src="/img/block1right22.jpg"></a><a href="/horeca/"><div class="cchid">ДЛЯ РЕСТОРАНОВ, КАФЕ, БАРОВ</div></a></div>
-<div class="ccat"><a href="/gostinica/"><img src="/img/block1right23.jpg"></a><a href="/gostinica/"><div class="cchid">ДЛЯ ГОСТИНИЦ И ОТЕЛЕЙ</div></a></div>
-<div class="ccat"><a href="/hlebproizvodstvo/"><img src="/img/block1right28.jpg"></a><a href="/hlebproizvodstvo/"><div class="cchid">ДЛЯ ХЛЕБОЗАВОДОВ</div></a></div>
-<div class="ccat"><a href="/clining/"><img src="/img/block1right27.jpg"></a><a href="/clining/"><div class="cchid">ДЛЯ КОММЕРЧЕСКОГО КЛИНИНГА</div></a></div>
-<div class="ccat"><a href="/molokosovhoz/"><img src="/img/block1right29.jpg"></a><a href="/molokosovhoz/"><div class="cchid">ДЛЯ МОЛОЧНЫХ СОВХОЗОВ</div></a></div>
-<div class="ccat"><a href="/myasokombinat/"><img src="/img/block1right26.jpg"></a><a href="/myasokombinat/"><div class="cchid">ДЛЯ МЯСОКОМБИНАТОВ</div></a></div>
-<div class="ccat"><a href="/napitki/"><img src="/img/block1right36.jpg"></a><a href="/napitki/"><div class="cchid">ДЛЯ ПРОИЗВОДСТВА ПИВА И НАПИТКОВ</div></a></div>
-<div class="ccat"><a href="/svinocomplex/"><img src="/img/block1right30.png"></a><a href="/svinocomplex/"><div class="cchid">ДЛЯ СВИНОКОМПЛЕКСОВ</div></a></div>
-<div class="ccat"><a href="/vetklinika/"><img src="/img/block1right24.jpg"></a><a href="/vetklinika/"><div class="cchid">ДЛЯ ВЕТЕРИНАРНЫХ КЛИНИК</div></a></div>
-
-</div>-->
-
-
-<div id="kak-rabotaet-himiya" class="block-5">
-	<div class="block-5-inside">
-		<h2>Посмотрите, как работает наш продукт</h2>
-
-		<div class="vid"><div class="name">Мойка посуды</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/f0lfdJyOAys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
-		<div class="youtube" id="f0lfdJyOAys" style="width: 100%; height: 270px;"></div></div>
-
-		<div class="vid"><div class="name">Удаление жира и нагара</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/e_h_4l47jNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
-		<div class="youtube" id="e_h_4l47jNs" style="width: 100%; height: 270px;"></div></div>
-		<div class="vid"><div class="name">Мойка жирного пола</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/5yyykra9xxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
-		<div class="youtube" id="5yyykra9xxA" style="width: 100%; height: 270px;"></div></div>
+        <div class="block-black">
+            <div class="block-black-inside">
+                <div><span>85 регионов РФ</span><hr>Продукция представлена во всех регионах России</div>
+                <div><span>14 лет</span><hr>Успешного производства качественных средств</div>
+                <div><span>Более 500</span><hr>Знаковых клиентов: РЖД, Черкизово, Ариант, Ашан</div>
+                <div><span>ICO 9001</span><hr>Работа по системе менеджемента качества</div>
+            </div>
+        </div>
 
 
 
 
-	</div>
-</div>
 
 
 
 
-<div class="block-22">
-	<div class="block-22-inside">
-	
-	<div class="leftblock">Закажите консультацию и узнайте,<br>сколько сможете экономить уже сейчас?<div class="button modal_btn3" onclick="ga('send','event','submint','main_zakaz_consult'); yaCounter54989140.reachGoal('main_zakaz_consult'); return true;">Заказать консультацию</div></div>
-	<div class="rightblock"></div>
-	
-	</div>
-</div>
+        <!--<div class="circle-catalog">
+        <h2>КАТАЛОГ ПРОДУКЦИИ ПО ТИПУ ПРЕДРИЯТИЯ</h2>
+        <div class="ccat"><a href="/horeca/"><img src="/img/block1right22.jpg"></a><a href="/horeca/"><div class="cchid">ДЛЯ РЕСТОРАНОВ, КАФЕ, БАРОВ</div></a></div>
+        <div class="ccat"><a href="/gostinica/"><img src="/img/block1right23.jpg"></a><a href="/gostinica/"><div class="cchid">ДЛЯ ГОСТИНИЦ И ОТЕЛЕЙ</div></a></div>
+        <div class="ccat"><a href="/hlebproizvodstvo/"><img src="/img/block1right28.jpg"></a><a href="/hlebproizvodstvo/"><div class="cchid">ДЛЯ ХЛЕБОЗАВОДОВ</div></a></div>
+        <div class="ccat"><a href="/clining/"><img src="/img/block1right27.jpg"></a><a href="/clining/"><div class="cchid">ДЛЯ КОММЕРЧЕСКОГО КЛИНИНГА</div></a></div>
+        <div class="ccat"><a href="/molokosovhoz/"><img src="/img/block1right29.jpg"></a><a href="/molokosovhoz/"><div class="cchid">ДЛЯ МОЛОЧНЫХ СОВХОЗОВ</div></a></div>
+        <div class="ccat"><a href="/myasokombinat/"><img src="/img/block1right26.jpg"></a><a href="/myasokombinat/"><div class="cchid">ДЛЯ МЯСОКОМБИНАТОВ</div></a></div>
+        <div class="ccat"><a href="/napitki/"><img src="/img/block1right36.jpg"></a><a href="/napitki/"><div class="cchid">ДЛЯ ПРОИЗВОДСТВА ПИВА И НАПИТКОВ</div></a></div>
+        <div class="ccat"><a href="/svinocomplex/"><img src="/img/block1right30.png"></a><a href="/svinocomplex/"><div class="cchid">ДЛЯ СВИНОКОМПЛЕКСОВ</div></a></div>
+        <div class="ccat"><a href="/vetklinika/"><img src="/img/block1right24.jpg"></a><a href="/vetklinika/"><div class="cchid">ДЛЯ ВЕТЕРИНАРНЫХ КЛИНИК</div></a></div>
 
-    <div id="kak-zakazat-i-pochit" class="block-6">
+        </div>-->
+
+
+        <div id="kak-rabotaet-himiya" class="block-5">
+            <div class="block-5-inside">
+                <h2>Посмотрите, как работает наш продукт</h2>
+
+                <div class="vid"><div class="name">Мойка посуды</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/f0lfdJyOAys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+                    <div class="youtube" id="f0lfdJyOAys" style="width: 100%; height: 270px;"></div></div>
+
+                <div class="vid"><div class="name">Удаление жира и нагара</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/e_h_4l47jNs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+                    <div class="youtube" id="e_h_4l47jNs" style="width: 100%; height: 270px;"></div></div>
+                <div class="vid"><div class="name">Мойка жирного пола</div><!--iframe width="560" height="315" src="https://www.youtube.com/embed/5yyykra9xxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+                    <div class="youtube" id="5yyykra9xxA" style="width: 100%; height: 270px;"></div></div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="block-22">
+            <div class="block-22-inside">
+
+                <div class="leftblock">Закажите консультацию и узнайте,<br>сколько сможете экономить уже сейчас?<div class="button modal_btn3" onclick="ga('send','event','submint','main_zakaz_consult'); yaCounter54989140.reachGoal('main_zakaz_consult'); return true;">Заказать консультацию</div></div>
+                <div class="rightblock"></div>
+
+            </div>
+        </div>
+
+        <div id="kak-zakazat-i-pochit" class="block-6">
             <div class="block-6-inside">
                 <h2>Как заказать и получить?</h2>
 
@@ -190,6 +190,6 @@ $(document).ready(function () {
 
 
 
-</div>
+    </div>
 
 {% endblock %}

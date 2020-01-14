@@ -1,5 +1,10 @@
+import json
+
+from django.http import JsonResponse
 from django.shortcuts import render
 from item.models import *
+from cart.models import *
+from .models import Callback
 def index(request):
     index_active='orangelink'
     show_tags = True
@@ -57,6 +62,39 @@ def cart(request):
     cart_active = 'orangelink'
     all_cats = Category.objects.all()
     return render(request, 'page/cart.html', locals())
+
+def order(request):
+    return_dict = {}
+    print(request.POST)
+    s_key = request.session.session_key
+    text = ''
+    a = json.loads(request.POST.get('items'))
+    for x in a:
+        str = f'Название : {a[x][0]}, объем : {a[x][1]}, количество : {a[x][2]} \n'
+        text+=str
+    order = Order.objects.create(name=request.POST.get('form_name'),
+                         email=request.POST.get('form_email'),
+                         phone=request.POST.get('form_phone'),
+                         order=text)
+    print(order.id)
+    items = Cart.objects.filter(client=s_key)
+    items.delete()
+    return_dict['order'] = order.id
+    return JsonResponse(return_dict)
+
+def callback(request):
+    return_dict = {}
+
+    Callback.objects.create(name=request.POST.get('form_name'),
+                         email=request.POST.get('form_email'),
+                         phone=request.POST.get('form_phone'))
+
+
+    return_dict['order'] = order.id
+    return JsonResponse(return_dict)
+
+
+
 """
 
 

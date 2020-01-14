@@ -5,53 +5,71 @@
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}
-    <div></div>
+        <div style="max-width: 1170px;margin: 40px auto">
+            <div class="cart" >
+                <div class="cart-item">#</div>
+                <div class="cart-item">Название</div>
+                <div class="cart-item no-border">Количество/Цена</div>
 
+                {% for i in all_items_in_cart %}
 
-        <div class="">
-            <div class="">
-                <table>
-                    <tbody><tr>
-                        <th></th>
-                        <th>Название</th>
-                        <th>Количество</th>
-                    </tr>
-                    {% for i in all_items_in_cart %}
-                        <tr>
-                            <td><img width="200" src="{{ i.item.image.url }}" alt=""></td>
-                            <td>{{ i.item.name }}</td>
-                            <td class="item">
-                                <div class="">
-                                         <div class="">
-                                    <p>количество</p>
-                                    <input type="number" min="1" value="{{ i.number }}" onchange="calc()">
-                                </div>
+                    <div class="cart-item"><img style="width: 10vw" src="{{ i.item.image.url }}" alt=""></div>
+                    <div class="cart-item"><div style="margin-top: 20%;">{{ i.item.name }}</div></div>
+                    <div class="cart-item item no-border">
+                        <div class="price">
+                            <div >
+                                <p>количество</p>
+                                <input data-name="{{ i.item.name }}" type="number" min="1" value="{{ i.number }}" onchange="calc()">
+                            </div>
+                            <div style="padding-top: 35px">
                                 x
-                                <div class="">
-                                    <p>Объем</p>
-                                    <select data-name="{{ i.item.name }}" onchange="calc()">
-                                        {{ i.item.price | prices_select  |safe}}
-                                    </select>
-                                </div>
+                            </div>
 
+                            <div >
+                                <p>Объем</p>
+                                <select data-name="{{ i.item.name }}" onchange="calc()">
+                                    {{ i.item.price | prices_select  |safe}}
+                                </select>
+                            </div>
+                            <div >
+                                <p>Итого</p>
                                 <span>0</span> руб
-                                </div>
+                            </div>
+
+                        </div>
 
 
 
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    <tr>
-                        <td></td>
-                        <td>Итого</td>
-                        <td><span id="total">0</span> руб</td>
+                    </div>
 
-                    </tr>
+                {% endfor %}
+                <div class="cart-item"></div>
+                <div class="cart-item"><strong>Итого</strong> </div>
+                <div class="cart-item no-border"><strong><span id="total"></span> руб</strong></div>
 
-                    </tbody></table>
+
+            </div>
+
+        </div>
+        <div class="forma-skidka2" style="width: auto !important;max-width: 1170px; margin: 0 auto">
+            <div class="forma-title"></div>
+            <form style="text-align: center" name="form-2"  >
+                <input class="name" name="name" id="form_name" type="text" placeholder="Ваше имя">
+                <input class="tell"  name="tell" id="form_email" type="email" placeholder="Ваша почта">
+                <input class="tell phone-field"  id="form_phone" name="tell" type="text" placeholder="Ваш телефон" >
+                <a href="javascript: void(0)"  class=" " onclick="submit()" >Отправить</a>
+            </form>
+        </div>
+    <div style="display: none" class="slogan">Спасибо, заявка отправлена. Номер заявки <span id="o_number"></span></div>
+        <div class="block-22">
+            <div class="block-22-inside">
+
+                <div class="leftblock">Закажите консультацию и узнайте,<br>сколько сможете экономить уже сейчас?<div class="button modal_btn3" onclick="ga('send','event','submint','main_zakaz_consult'); yaCounter54989140.reachGoal('main_zakaz_consult'); return true;">Заказать консультацию</div></div>
+                <div class="rightblock"></div>
+
             </div>
         </div>
+
 
     </div>
 
@@ -75,8 +93,56 @@
                 total.innerText= price * number
                 totalPrice += price * number
             }
-            console.log(total)
+
             $('#total').text(totalPrice)
+        }
+
+        function submit() {
+            all_items = {}
+            let data = {};
+
+            items = document.getElementsByClassName('item')
+            form_name = $('#form_name').val()
+            form_email = $('#form_email').val()
+            form_phone = $('#form_phone').val()
+            csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            y=1
+            for (x of items){
+
+                temp=[]
+                number = parseInt(x.getElementsByTagName('input')[0].value)
+                item_volume =x.getElementsByTagName('select')[0].options[x.getElementsByTagName('select')[0].selectedIndex].innerText
+                item_name = x.getElementsByTagName('input')[0].dataset.name
+                temp.push(item_name,item_volume,number)
+                all_items[y] = temp
+                y+=1
+
+            }
+
+             data['csrfmiddlewaretoken'] = csrf_token;
+            data['items'] = JSON.stringify(all_items)
+            data['form_email'] = form_email;
+            data['form_name'] = form_name;
+            data['form_phone'] = form_phone;
+            console.log(data)
+             $.ajax({
+        url:'/order/',
+        type:'POST',
+        data: data,
+        cache:true,
+        success: function (data) {
+            console.log('OK');
+            console.log(data);
+            document.getElementsByClassName('forma-skidka2')[0].style.display='none'
+            document.getElementsByClassName('slogan')[1].style.display='block'
+            document.getElementById('o_number').innerText = data.order
+
+
+        },
+        error: function () {
+            console.log('ERROR')
+        }
+    })
         }
     </script>
 

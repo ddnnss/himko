@@ -12,4 +12,10 @@ class Cart(models.Model):
         verbose_name = "Товар в корзине"
         verbose_name_plural = "Товары в корзинах"
 
+class Order(models.Model):
+    name = models.CharField('Имя',max_length=255,blank=True,null=True)
+    phone = models.CharField('Телефон', max_length=255, blank=True, null=True)
+    email = models.CharField('Почта', max_length=255, blank=True, null=True)
+    order = models.TextField('Заказ', blank=True, null=True)
+
 
