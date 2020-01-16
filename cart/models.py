@@ -1,4 +1,9 @@
+from django.core.mail import send_mail
 from django.db import models
+from django.db.models.signals import post_save
+from django.template.loader import render_to_string
+import settings
+
 from item.models import Item
 
 
@@ -19,3 +24,9 @@ class Order(models.Model):
     order = models.TextField('Заказ', blank=True, null=True)
 
 
+def order_ps(sender, instance, **kwargs):
+    msg_html = render_to_string('email/order.html', {'user': instance.name, 'phone': instance.phone, 'email': instance.email, 'order': instance.order})
+    send_mail('Новый заказ на сайте specsintez-pro.ru', None, 'no-reply@specsintez-pro.ru', [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+
+post_save.connect(order_ps, sender=Order)
