@@ -25,54 +25,29 @@
 
 			<div id="menu-fixed-mobile">
 
-<a class="menufixedmobile" href="javascript: collapsElement('menu-fixed-mobile-open')"><img src="/img/menu-gamburger.png">МЕНЮ</a>
+<a class="menufixedmobile" href="javascript: collapsElement('menu-fixed-mobile-open')"><img src="{% static 'img/menu-gamburger.png' %}">МЕНЮ</a>
 
 
 <div id="menu-fixed-mobile-open" style="display: none;">
 <div class="top-menu-horeca-mobile">
 				<ul>
-					<li>
-						<a href="#firstBlock">Почему мы?</a>
+						<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
+			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
+            <li><a class="{{ catalog_active }}" href="{% url 'catalog' all %}">Каталог</a></li>
+            <li class="noborder"><a class="{{ cart_active }}" href="{% url 'cart' %}"> Предварительная Заявка <span id="cart_count1" style="    background: #8da82e;
+    padding: 5px 10px;
+    border-radius: 50%;">{{ count_items_in_cart }}</span> </a></li>
+
+				</ul>
+    	<ul style="padding-top: 10px">
+                    {% for cat in all_cats %}
+						<li class="noborder">
+						<a style="padding: 10px 15px"  href="{% url 'catalog' cat.name_slug %}">{{ cat.name }}</a>
 					</li>
-					<li>
-						<a class="orangelink" href="#katalog">Каталог</a>
-					</li>
-					<li>
-						<a href="#otzyvy">Отзывы</a>
-					</li>
-					<li>
-						<a href="#kak-rabotaet-himiya">Как работает химия</a>
-					</li>
-					<li>
-						<a href="#kak-zakazat-i-pochit">Как заказать и получить</a>
-					</li>
-					<li class="noborder">
-						<a href="#contacts">Контакты</a>
-					</li>
+                    {% endfor %}
 				</ul>
 			</div>
-    <div class="top-menu-horeca-mobile">
-				<ul>
-					<li>
-						<a href="#firstBlock">Почему мы?</a>
-					</li>
-					<li>
-						<a class="orangelink" href="#katalog">Каталог</a>
-					</li>
-					<li>
-						<a href="#otzyvy">Отзывы</a>
-					</li>
-					<li>
-						<a href="#kak-rabotaet-himiya">Как работает химия</a>
-					</li>
-					<li>
-						<a href="#kak-zakazat-i-pochit">Как заказать и получить</a>
-					</li>
-					<li class="noborder">
-						<a href="#contacts">Контакты</a>
-					</li>
-				</ul>
-			</div>
+
 </div>
 
 </div>

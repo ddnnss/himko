@@ -1,10 +1,12 @@
 import json
 
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 from item.models import *
 from cart.models import *
 from .models import Callback
+from django.contrib import messages
+
 def index(request):
     index_active='orangelink'
     show_tags = True
@@ -83,15 +85,13 @@ def order(request):
     return JsonResponse(return_dict)
 
 def callback(request):
-    return_dict = {}
-
-    Callback.objects.create(name=request.POST.get('form_name'),
-                         email=request.POST.get('form_email'),
-                         phone=request.POST.get('form_phone'))
 
 
-    return_dict['order'] = order.id
-    return JsonResponse(return_dict)
+    Callback.objects.create(name=request.POST.get('name'),
+                         email=request.POST.get('email'),
+                         phone=request.POST.get('phone'))
+    messages.success(request, 'Спасибо, форма успешно отправлена')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 

@@ -80,12 +80,15 @@
         <div class="modal-content-box">
             <div class="zz3">Заказать консультацию</div>
             <p>Менеджер свяжется с Вами в ближайшие неколько минут и подробно проконсультирует!</p>
-            <form  name="form-1">
-                <input class="name input2" name="name" type="text" placeholder="Имя">
-                <input class="tell input2" name="tell" type="text" placeholder="+7 (   )   -  -  ">
-                <input class="e-mail input2" name="e-mail" type="text" placeholder="E-mail">
-                <input onclick="ga('send','event','submint','main_send_zakaz_consult'); yaCounter54989140.reachGoal('main_send_zakaz_consult'); return true;" class="feedback" name="send" type="button" value="Отправить">
-            </form>
+
+              <form action="{% url 'callback' %}" name="form-1" method="post">{% csrf_token %}
+                        <input class="name input2" id="static_name" name="name" type="text" placeholder="Ваше имя">
+                        <input class="tell  input2 phone-field" id="static_phone" required  name="phone" type="text" placeholder="Ваш телефон">
+                         <input class="e-mail input2" name="email" type="text" placeholder="E-mail">
+                        <button style="border-radius: 20px;    padding: 13px 40px;
+    background: #2196F3;
+    border: 1px solid #2196F3;color: #ffffff" class="feedback feedback3" type="submit">Получить консультацию</button>
+              </form>
         </div>
     </div>
 </div>
@@ -199,7 +202,15 @@
 <script src="{% static 'js/jquery.mask.min.js' %}"></script>
 <script>
     $('.phone-field').mask('+7 (000) 000-00-00');
-    function callback() {
+    function callback(type) {
+        console.log(type)
+        let name = ''
+        let phone = ''
+        let
+        if (type === 'static'){
+
+        }
+
         
     }
     

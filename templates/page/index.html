@@ -12,10 +12,10 @@
 
                 <div class="forma-skidka2">
                     <div class="forma-title">Узнать подробнее</div>
-                    <form name="form-2">
-                        <input class="name" name="name" type="text" placeholder="Имя">
-                        <input class="tell"  name="tell" type="text" placeholder="+7 (   )   -  -  ">
-                        <input onclick="ga('send','event','submint','main_consult'); yaCounter54989140.reachGoal('main_consult'); return true;" class="feedback feedback3" name="send" type="button" value="Получить консультацию">
+                    <form action="{% url 'callback' %}" name="form-2" method="post">{% csrf_token %}
+                        <input class="name" id="static_name" name="name" type="text" placeholder="Ваше имя">
+                        <input class="tell phone-field" id="static_phone" required  name="phone" type="text" placeholder="Ваш телефон">
+                        <button style="border-radius: 20px" class="feedback2 feedback3" type="submit">Получить консультацию</button>
                     </form>
                 </div>
 
