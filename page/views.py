@@ -85,6 +85,7 @@ def order(request):
     return JsonResponse(return_dict)
 
 def callback(request):
+    print(request.POST)
 
 
     Callback.objects.create(name=request.POST.get('name'),

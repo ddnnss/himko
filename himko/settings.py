@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import settings
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -27,6 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+EMAIL_HOST = settings.SMTP_HOST
+EMAIL_HOST_USER = settings.SMTP_LOGIN
+EMAIL_HOST_PASSWORD = settings.SMTP_PASSWORD
+EMAIL_PORT = settings.SMTP_PORT
+EMAIL_USE_TLS = True
 
 # Application definition
 
