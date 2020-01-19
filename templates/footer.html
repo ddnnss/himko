@@ -48,14 +48,15 @@
     <div class="box-modal" id="small-modal">
         <div class="modal-close arcticmodal-close">x</div>
         <div class="modal-content-box">
-            <div class="zz3">Оформить заказ</div>
-            <form  name="form-1">
-                <input class="name input2" name="name" type="text" placeholder="Имя">
-                <input class="tell input2" name="tell" type="text" placeholder="+7 (   )   -  -  ">
-
-                <input class="comme input2" name="comme" type="text" placeholder="Комментарий">
-                <input onclick="ga('send','event','submint','main_oforml_tovara'); yaCounter54989140.reachGoal('main_oforml_tovara'); return true;" class="feedback" name="send" type="button" value="Отправить">
-            </form>
+            <div class="zz3">Запрос на скидку</div>
+            <form action="{% url 'callback' %}" name="form-1" method="post">{% csrf_token %}
+                        <input class="name input2"  name="name" type="text" placeholder="Ваше имя">
+                        <input class="tell  input2 phone-field"  required  name="phone" type="text" placeholder="Ваш телефон">
+                         <input class="e-mail input2" name="email" type="text" placeholder="E-mail">
+                        <button style="border-radius: 20px;    padding: 13px 40px;
+    background: #2196F3;
+    border: 1px solid #2196F3;color: #ffffff" class="feedback feedback3" type="submit">Получить консультацию</button>
+              </form>
         </div>
     </div>
 </div>

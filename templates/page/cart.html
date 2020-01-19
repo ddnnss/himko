@@ -7,16 +7,17 @@
         {% include 'header_inner.html' %}
         <div style="max-width: 1170px;margin: 40px auto">
             <div class="cart" >
-                <div class="cart-item">#</div>
+                <div class="cart-item"></div>
                 <div class="cart-item">Название</div>
                 <div class="cart-item no-border">Количество/Цена</div>
+
 
                 {% for i in all_items_in_cart %}
 
                     <div class="cart-item"><img style="width: 10vw" src="{{ i.item.image.url }}" alt=""></div>
                     <div class="cart-item"><div style="margin-top: 20%;">{{ i.item.name }}</div></div>
                     <div class="cart-item item no-border">
-                        <div class="price">
+                        <div style="margin-bottom: 40px" class="price">
                             <div >
                                 <p>количество</p>
                                 <input data-name="{{ i.item.name }}" type="number" min="1" value="{{ i.number }}" onchange="calc()">
@@ -37,9 +38,9 @@
                             </div>
 
                         </div>
-
-
-
+                        <a style=" background: #f00 ; padding: 10px 20px; border-radius: 20px;
+                        color: white;text-decoration: none; font-size: 13px; width: 125px;
+                        margin: 10px 0 0 0;" href="{% url 'remove' i.id %}">УДАЛИТЬ</a>
                     </div>
 
                 {% endfor %}
@@ -57,7 +58,9 @@
                 <input class="name" name="name" id="form_name" type="text" placeholder="Ваше имя">
                 <input class="tell"  name="tell" id="form_email" type="email" placeholder="Ваша почта">
                 <input class="tell phone-field"  id="form_phone" name="tell" type="text" placeholder="Ваш телефон" >
-                <a href="javascript: void(0)"  class=" " onclick="submit()" >Отправить</a>
+                <a style=" display: block; background: #2196F3 ; padding: 10px 20px; border-radius: 20px;
+                        color: white;text-decoration: none;  width: 250px;
+                        margin: 0 auto;" href="javascript: void(0)"  class=" " onclick="submit()" >Отправить заявку</a>
             </form>
         </div>
     <div style="display: none" class="slogan">Спасибо, заявка отправлена. Номер заявки <span id="o_number"></span></div>

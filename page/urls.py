@@ -14,7 +14,7 @@ urlpatterns = [
     path('order/', views.order, name='order'),
     path('callback/', views.callback, name='callback'),
     # path('robots.txt', views.robots, name='robots'),
-    # path('sitemap.xml', views.sitemap, name='sitemap'),
+    path('remove/<id>', views.remove, name='remove'),
     # path('test/', views.test, name='test'),
     # path('test1/', views.test1, name='test1')
 

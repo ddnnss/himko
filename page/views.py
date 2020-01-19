@@ -1,6 +1,6 @@
 import json
 
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from item.models import *
 from cart.models import *
@@ -72,7 +72,7 @@ def order(request):
     text = ''
     a = json.loads(request.POST.get('items'))
     for x in a:
-        str = f'Название : {a[x][0]}, объем : {a[x][1]}, количество : {a[x][2]} \n'
+        str = f'{a[x][0]} - {a[x][1]} : {a[x][2]} шт. \n'
         text+=str
     order = Order.objects.create(name=request.POST.get('form_name'),
                          email=request.POST.get('form_email'),
@@ -94,8 +94,13 @@ def callback(request):
     messages.success(request, 'Спасибо, форма успешно отправлена')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def remove(request,id):
+    s_key = request.session.session_key
+    cart = Cart.objects.filter(client=s_key,id=id)
+    print(cart)
+    cart.delete()
 
-
+    return HttpResponseRedirect('/cart/')
 """
 
 
