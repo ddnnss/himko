@@ -5,65 +5,65 @@
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}
-        <div style="max-width: 1170px;margin: 40px auto">
-            <div class="cart" >
-                <div class="cart-item"></div>
-                <div class="cart-item">Название</div>
-                <div class="cart-item no-border">Количество/Цена</div>
+        {% if all_items_in_cart %}
+            <div style="max-width: 1170px;margin: 40px auto">
+                <div class="cart" >
+                    <div class="cart-item"></div>
+                    <div class="cart-item">Название</div>
+                    <div class="cart-item no-border">Количество/Цена</div>
 
 
-                {% for i in all_items_in_cart %}
+                    {% for i in all_items_in_cart %}
 
-                    <div class="cart-item"><img style="width: 10vw" src="{{ i.item.image.url }}" alt=""></div>
-                    <div class="cart-item"><div style="margin-top: 20%;">{{ i.item.name }}</div></div>
-                    <div class="cart-item item no-border">
-                        <div style="margin-bottom: 40px" class="price">
-                            <div >
-                                <p>количество</p>
-                                <input data-name="{{ i.item.name }}" type="number" min="1" value="{{ i.number }}" onchange="calc()">
+                        <div class="cart-item"><img style="width: 10vw" src="{{ i.item.image.url }}" alt=""></div>
+                        <div class="cart-item"><div style="margin-top: 20%;">{{ i.item.name }}</div></div>
+                        <div class="cart-item item no-border">
+                            <div style="margin-bottom: 30px" class="price">
+                                <div >
+                                    <p>количество</p>
+                                    <input data-name="{{ i.item.name }}" type="number" min="1" value="{{ i.number }}" onchange="calc()">
+                                </div>
+
+
+                                <div >
+                                    <p>Объем</p>
+                                    <select data-name="{{ i.item.name }}" onchange="calc()">
+                                        {{ i.item.price | prices_select  |safe}}
+                                    </select>
+                                </div>
+                                <div >
+                                    <p>Итого</p>
+                                    <span>0</span> руб
+                                </div>
+
                             </div>
-                            <div style="padding-top: 35px">
-                                x
-                            </div>
-
-                            <div >
-                                <p>Объем</p>
-                                <select data-name="{{ i.item.name }}" onchange="calc()">
-                                    {{ i.item.price | prices_select  |safe}}
-                                </select>
-                            </div>
-                            <div >
-                                <p>Итого</p>
-                                <span>0</span> руб
-                            </div>
-
-                        </div>
-                        <a style=" background: #f00 ; padding: 10px 20px; border-radius: 20px;
+                            <a style=" background: #f00 ; padding: 10px 20px; border-radius: 20px;
                         color: white;text-decoration: none; font-size: 13px; width: 125px;
                         margin: 10px 0 0 0;" href="{% url 'remove' i.id %}">УДАЛИТЬ</a>
-                    </div>
+                        </div>
 
-                {% endfor %}
-                <div class="cart-item"></div>
-                <div class="cart-item"><strong>Итого</strong> </div>
-                <div class="cart-item no-border"><strong><span id="total"></span> руб</strong></div>
+                    {% endfor %}
+                    <div class="cart-item"></div>
+                    <div class="cart-item"><strong>Итого</strong> </div>
+                    <div class="cart-item no-border"><strong><span id="total"></span> руб</strong></div>
 
+
+                </div>
 
             </div>
-
-        </div>
-        <div class="forma-skidka2" style="width: auto !important;max-width: 1170px; margin: 0 auto">
-            <div class="forma-title"></div>
-            <form style="text-align: center" name="form-2"  >
-                <input class="name" name="name" id="form_name" type="text" placeholder="Ваше имя">
-                <input class="tell"  name="tell" id="form_email" type="email" placeholder="Ваша почта">
-                <input class="tell phone-field"  id="form_phone" name="tell" type="text" placeholder="Ваш телефон" >
-                <a style=" display: block; background: #2196F3 ; padding: 10px 20px; border-radius: 20px;
+            <div class="forma-skidka2" style="width: auto !important;max-width: 1170px; margin: 0 auto">
+                <div class="forma-title"></div>
+                <form style="text-align: center" name="form-2"  >
+                    <input class="name" name="name" id="form_name" type="text" placeholder="Ваше имя">
+                    <input class="tell"  name="tell" id="form_email" type="email" placeholder="Ваша почта">
+                    <input class="tell phone-field"  id="form_phone" name="tell" type="text" placeholder="Ваш телефон" >
+                    <a style=" display: block; background: #2196F3 ; padding: 10px 20px; border-radius: 20px;
                         color: white;text-decoration: none;  width: 250px;
-                        margin: 0 auto;" href="javascript: void(0)"  class=" " onclick="submit()" >Отправить заявку</a>
-            </form>
-        </div>
-    <div style="display: none" class="slogan">Спасибо, заявка отправлена. Номер заявки <span id="o_number"></span></div>
+                        margin: 0 auto; margin-bottom: 20px" href="javascript: void(0)"  class=" " onclick="submit()" >Отправить заявку</a>
+                </form>
+            </div>
+            <div style="display: none" class="slogan">Спасибо, заявка отправлена. Номер заявки <span id="o_number"></span></div>
+        {% endif %}
         <div class="block-22">
             <div class="block-22-inside">
 
@@ -101,6 +101,8 @@
         }
 
         function submit() {
+            $('#form_phone').css('border-color','#ccc')
+              $('#form_name').css('border-color','#ccc')
             all_items = {}
             let data = {};
 
@@ -108,7 +110,8 @@
             form_name = $('#form_name').val()
             form_email = $('#form_email').val()
             form_phone = $('#form_phone').val()
-            csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value
+            if (form_name && form_phone){
+                    csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value
             y=1
             for (x of items){
 
@@ -122,30 +125,41 @@
 
             }
 
-             data['csrfmiddlewaretoken'] = csrf_token;
+            data['csrfmiddlewaretoken'] = csrf_token;
             data['items'] = JSON.stringify(all_items)
             data['form_email'] = form_email;
             data['form_name'] = form_name;
             data['form_phone'] = form_phone;
             console.log(data)
-             $.ajax({
-        url:'/order/',
-        type:'POST',
-        data: data,
-        cache:true,
-        success: function (data) {
-            console.log('OK');
-            console.log(data);
-            document.getElementsByClassName('forma-skidka2')[0].style.display='none'
-            document.getElementsByClassName('slogan')[1].style.display='block'
-            document.getElementById('o_number').innerText = data.order
+            $.ajax({
+                url:'/order/',
+                type:'POST',
+                data: data,
+                cache:true,
+                success: function (data) {
+                    console.log('OK');
+                    console.log(data);
+                    document.getElementsByClassName('forma-skidka2')[0].style.display='none'
+                    document.getElementsByClassName('slogan')[1].style.display='block'
+                    document.getElementById('o_number').innerText = data.order
 
 
-        },
-        error: function () {
-            console.log('ERROR')
-        }
-    })
+                },
+                error: function () {
+                    console.log('ERROR')
+                }
+            })
+            }
+            else {
+                if (!form_phone){
+                     $('#form_phone').css('border-color','red')
+                }
+                if (!form_name){
+                     $('#form_name').css('border-color','red')
+                }
+
+            }
+
         }
     </script>
 

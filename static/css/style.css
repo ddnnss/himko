@@ -1327,7 +1327,9 @@ text-align: left;
 
 .price{
 	    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+
     text-align: center;
     align-items: center;
     max-width: 75%;
@@ -1351,4 +1353,11 @@ input[type=number]::-webkit-outer-spin-button {
 
    opacity: 1;
 
+}
+
+@media (max-width: 850px){
+	.price{
+		grid-template-columns: 1fr;
+		margin-bottom: 10px !important;
+	}
 }
