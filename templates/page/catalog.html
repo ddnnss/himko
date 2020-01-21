@@ -12,7 +12,7 @@
                 <h2>{{ cat.name }}</h2>
 
                 {% for item in all_items %}
-                    <div class="sredstvo"><img src="{{ item.image.url }}">
+                    <div id="{{ item.name | make_slug }}" class="sredstvo"><img src="{{ item.image.url }}">
                         <div class="sr-text"><span>{{ item.name }}</span>
                             <div id="readmore">
                                 {{ item.text1 | safe }}

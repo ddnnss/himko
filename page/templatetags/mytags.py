@@ -1,5 +1,6 @@
 
 from django import template
+from pytils.translit import slugify
 
 register = template.Library()
 
@@ -20,3 +21,7 @@ def prices_select(data):
         print(i.split(' ')[0])
         return_string += f'<option value="{i.split(" ")[0]}">{i}</option>'
     return return_string
+
+@register.filter
+def make_slug(data):
+    return slugify(data)
