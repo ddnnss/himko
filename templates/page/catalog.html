@@ -9,10 +9,11 @@
         <div id="dlya-dezinsekcii" class="block-catalog" style="float: none">
             <div class="block-catalog-inside">
 
-                <h2>{{ cat.name }}</h2>
+                <h2 style="margin-bottom: 60px">{{ cat.name }}</h2>
 
                 {% for item in all_items %}
-                    <div id="{{ item.name | make_slug }}" class="sredstvo"><img src="{{ item.image.url }}">
+
+                    <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img src="{{ item.image.url }}">
                         <div class="sr-text"><span>{{ item.name }}</span>
                             <div id="readmore">
                                 {{ item.text1 | safe }}
