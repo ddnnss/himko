@@ -1355,9 +1355,54 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
+.item-card-btn{
+	font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    cursor: pointer;
+    width: 155px;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 5px 40px;
+	text-decoration: none;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    float: right;
+    margin: 0 20px 0 0;
+}
+
+.item-card-btn.blue{
+	 background: #2196F3;
+    border: 1px solid #2196F3;
+}
+
+.item-card-btn.red{
+background: red;
+}
+.item-card-btn.green{
+	background: #8da82e;
+}
+
+.item-card-block{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap}
+
 @media (max-width: 850px){
 	.price{
 		grid-template-columns: 1fr;
 		margin-bottom: 10px !important;
 	}
+	.item-card-btn.blue{
+		margin-bottom: 10px !important;
+	}
+
+	.item-card-btn{
+		margin: 0 auto;
+		padding: 10px 25px;
+		float: none;
+	}
 }
+

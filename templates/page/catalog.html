@@ -28,31 +28,13 @@
 
                             {{ item.price | prices | safe}}
 
-                            <div style="display: flex;
-    align-items: center;
-    justify-content: flex-end;">
-                                                  <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button " style="font-weight: 300;
-    font-style: normal;
-    text-align: center;
-    cursor: pointer;
-    width: 155px;
-    font-size: 16px;
-    color: #FFFFFF;
-    padding: 5px 40px;
-    background: #2196F3;
-    border: 1px solid #2196F3;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    float: right;
-    margin: 0 20px 0 0;">Положить в корзину</div>
-                                <a style="background: #8da82e;
-                                 text-decoration: none;
-                                  color: white;
-                                   border-radius: 20px;
-padding: 5px 40px" href="{% url 'cart' %}">Перейти в корзину</a>
+                            <div  class="item-card-block">
+                                <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue" >Положить в корзину</div>
+                                <a class="item-card-btn green" href="{% url 'cart' %}">Перейти в корзину</a>
                             </div>
-        <div class="warningeb">Нашли дешевле? Поторгуемся?</div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn redmodalv">Получить скидку</div>
+                            <div class="warningeb">
+                                <p><a  href="{% url 'catalog' all %}">Вернуться в каталог</a></p>
+                                <p>Нашли дешевле? Поторгуемся?</p></div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button item-card-btn red">Получить скидку</div>
 
 
 
