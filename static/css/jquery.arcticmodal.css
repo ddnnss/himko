@@ -97,7 +97,8 @@
     font-size: 14px;
 }
 #small-modal3 {
-    width: 400px;
+    width: 320px;
+    box-sizing: border-box;
 	text-align: center;
 }
 #small-modal3 .input2 {
@@ -107,7 +108,8 @@
     -webkit-border-radius: 30px;
     color: rgba(145, 145, 145, 1);
     height: 40px;
-	width:340px;
+	width:100%;
+    box-sizing: border-box;
 	margin:10px 0;
 	padding: 0 0 0 18px;
     font-size: 14px;
