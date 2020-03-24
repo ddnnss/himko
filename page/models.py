@@ -16,7 +16,10 @@ class Callback(models.Model):
 
 
 def callback_ps(sender, instance, **kwargs):
-    msg_html = render_to_string('email/callback.html', {'user': instance.name, 'phone': instance.phone, 'email': instance.email})
+    msg_html = render_to_string('email/callback.html', {'id': instance.id,
+                                                        'user': instance.name,
+                                                        'phone': instance.phone,
+                                                        'email': instance.email})
     send_mail('Заполнена форма обратной связи на сайте specsintez-pro.ru', None, 'no-reply@specsintez-pro.ru', [settings.SEND_TO],
               fail_silently=False, html_message=msg_html)
 

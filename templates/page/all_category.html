@@ -11,7 +11,7 @@
 
                 <div class="catalog" style="display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); grid-gap: 20px;">
                     {% for cat in all_cats %}
-                        <a style="width: 100%;height: auto;margin: 0" href="{% url 'catalog' cat.name_slug %}"><img style="margin-bottom: 10px" src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
+                        <a style="width: 100%;height: auto;margin: 0" href="{% url 'catalog_inner' cat.name_slug %}"><img style="margin-bottom: 10px" src="{{ cat.image.url }}"><br>{{ cat.name }}</a>
 
 
                     {% endfor %}

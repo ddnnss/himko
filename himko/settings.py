@@ -34,10 +34,13 @@ EMAIL_HOST_USER = settings.SMTP_LOGIN
 EMAIL_HOST_PASSWORD = settings.SMTP_PASSWORD
 EMAIL_PORT = settings.SMTP_PORT
 EMAIL_USE_TLS = True
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'item',
     'page',
-    'cart'
+    'cart',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [

@@ -1,27 +1,7 @@
 {% extends 'basic.html' %}
 {% load static %}
 {% load mytags %}
-{% block title %}
-    {% if title %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
-{% block description %}
-    {% if description %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
-{% block keywords %}
-    {% if keywords %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
+
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}
@@ -29,22 +9,21 @@
         <div id="dlya-dezinsekcii" class="block-catalog" style="float: none">
             <div class="block-catalog-inside">
 
-                <h1 style="margin-bottom: 60px">{{ h1 }}</h1>
+                <h2 style="margin-bottom: 60px">{{ cat.name }}</h2>
 
-                {% for item in all_items %}
+
 
                     <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img src="{{ item.image.url }}">
-                        <div class="sr-text"><a href="{{ item.get_absolute_url }}" style="text-decoration:none !important;    color: #2196f3;
-    border-bottom: 1px solid #2196f3;"><span>{{ item.name }}</span></a>
+                        <div class="sr-text"><span>{{ item.name }}</span>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
                             <div id="readmore">
                                 {{ item.text1 | safe }}
 
-                                <p><a href="{{ item.get_absolute_url }}" style="text-decoration:none !important;    color: #2196f3;
-    border-bottom: 1px solid #2196f3;">Подробнее</a></p>
 
-
+                                <div >
+                                    {{ item.text2 | safe }}
+                                </div>
                             </div>
 
                             {{ item.price | prices | safe}}
@@ -61,15 +40,10 @@
 
                         </div>
                     </div>
-                {% endfor %}
+
 
             </div>
         </div>
-    {% if cat.description %}
-    <div style="text-align: left; font-size: inherit" class="block-catalog-inside">
-        {{ cat.description | safe }}
-    </div>
-    {% endif %}
         <div class="block-22">
             <div class="block-22-inside">
 

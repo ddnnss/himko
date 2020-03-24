@@ -1,10 +1,15 @@
 
 from django.urls import path
 from . import views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('catalog/<cat_slug>/', views.catalog, name='catalog'),
+    path('index.html', RedirectView.as_view(url='/', permanent=False), name='index1'),
+    path('index.php', RedirectView.as_view(url='/', permanent=False), name='index2'),
+    path('catalog/', views.catalog, name='catalog'),
+    path('catalog/<cat_slug>/', views.catalog_inner, name='catalog_inner'),
+    path('catalog/<cat_slug>/<item_slug>/', views.item, name='item'),
     path('about/', views.about_us, name='about_us'),
     path('contacts/', views.contacts, name='contacts'),
     path('how_it_works/', views.how_it_works, name='how_it_works'),
@@ -13,8 +18,9 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
     path('order/', views.order, name='order'),
     path('callback/', views.callback, name='callback'),
-    # path('robots.txt', views.robots, name='robots'),
+    path('robots.txt', views.robots, name='robots'),
     path('remove/<id>', views.remove, name='remove'),
+    path('make_slug_dfp217230lf', views.make_slug, name='make_slug'),
     # path('test/', views.test, name='test'),
     # path('test1/', views.test1, name='test1')
 

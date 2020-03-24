@@ -1,7 +1,7 @@
 import json
 
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from item.models import *
 from cart.models import *
 from .models import Callback
@@ -23,17 +23,31 @@ def index(request):
     return render(request, 'page/index.html', locals())
 
 
-def catalog(request, cat_slug):
+def catalog(request):
+    catalog_active = 'orangelink'
+
+    all_cats = Category.objects.all()
+    return render(request, 'page/all_category.html', locals())
+
+def catalog_inner(request, cat_slug):
     catalog_active = 'orangelink'
     all_cats = Category.objects.all()
-    if cat_slug !='all':
-        cat = Category.objects.get(name_slug=cat_slug)
-        all_items = Item.objects.filter(category=cat)
-
-        return render(request, 'page/catalog.html', locals())
+    cat = Category.objects.get(name_slug=cat_slug)
+    if cat.page_h1:
+        h1= cat.page_h1
     else:
+        h1 = cat.name
+    title = cat.page_title
+    description = cat.page_description
+    keywords = cat.page_keywords
+    all_items = Item.objects.filter(category=cat)
+    return render(request, 'page/catalog.html', locals())
 
-        return render(request, 'page/all_category.html', locals())
+def item(request, cat_slug,item_slug):
+    item = get_object_or_404(Item,name_slug=item_slug)
+    all_cats = Category.objects.all()
+    return render(request, 'page/item.html', locals())
+    pass
 
 def about_us(request):
     about_active = 'orangelink'
@@ -84,10 +98,12 @@ def order(request):
     return_dict['order'] = order.id
     return JsonResponse(return_dict)
 
+def robots(request):
+    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://specsintez-pro.ru/\nSitemap: https://specsintez-pro.ru/sitemap.xml"
+    return HttpResponse(robotsTxt, content_type="text/plain")
+
 def callback(request):
     print(request.POST)
-
-
     Callback.objects.create(name=request.POST.get('name'),
                          email=request.POST.get('email'),
                          phone=request.POST.get('phone'))
@@ -101,6 +117,12 @@ def remove(request,id):
     cart.delete()
 
     return HttpResponseRedirect('/cart/')
+
+def make_slug(request):
+    items = Item.objects.all()
+    for i in items:
+        print(i.name)
+        i.save()
 """
 
 
