@@ -15,6 +15,8 @@
                     <form action="{% url 'callback' %}" name="form-2" method="post">{% csrf_token %}
                         <input class="name" id="static_name" name="name" type="text" placeholder="Ваше имя">
                         <input class="tell phone-field" id="static_phone" required  name="phone" type="text" placeholder="Ваш телефон">
+                        <input style="display: none" type="checkbox" name="agree">
+                <textarea style="display: none" name="message"  cols="30" rows="10"></textarea>
                         <button style="border-radius: 20px" class="feedback2 feedback3" type="submit">Получить консультацию</button>
                     </form>
                 </div>

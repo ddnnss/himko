@@ -1,6 +1,26 @@
 {% extends 'basic.html' %}
 {% load static %}
-
+{% block title %}
+    {% if title %}
+    {{ title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+{% block description %}
+    {% if description %}
+    {{ title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+{% block keywords %}
+    {% if keywords %}
+    {{ title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}

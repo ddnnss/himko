@@ -1,6 +1,12 @@
 {% extends 'basic.html' %}
 {% load static %}
 {% load mytags %}
+{% block title %}
+    Спецсинтез {{ item.name }} - купить в интернет-магазине недорого
+{% endblock %}
+{% block description %}
+    В нашем интернет магазине Вы можете купить Спецсинтез {{ item.name }} по низкой цене, с доставкой по России!
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -14,7 +20,7 @@
 
 
                     <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img src="{{ item.image.url }}">
-                        <div class="sr-text"><span>{{ item.name }}</span>
+                        <div class="sr-text"><h1>{{ item.name }}</h1>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
                             <div id="readmore">

@@ -104,10 +104,14 @@ def robots(request):
 
 def callback(request):
     print(request.POST)
-    Callback.objects.create(name=request.POST.get('name'),
-                         email=request.POST.get('email'),
-                         phone=request.POST.get('phone'))
-    messages.success(request, 'Спасибо, форма успешно отправлена')
+    if not request.POST.get('agree') and not request.POST.get('message'):
+        Callback.objects.create(name=request.POST.get('name'),
+                             email=request.POST.get('email'),
+                             phone=request.POST.get('phone'))
+        messages.success(request, 'Спасибо, форма успешно отправлена')
+        print('send')
+    else:
+        print('not send')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def remove(request,id):

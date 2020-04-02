@@ -2,26 +2,12 @@
 {% load static %}
 {% load mytags %}
 {% block title %}
-    {% if title %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
+   Каталог Спецсинтез - продажа профессиональной химии
 {% endblock %}
 {% block description %}
-    {% if description %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
+   СпецСинтез - это профессиональные моющие средства для всех направлений бизнеса.
 {% endblock %}
-{% block keywords %}
-    {% if keywords %}
-    {{ title }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
+
 {% block content %}
     <div class="container">
         {% include 'header_inner.html' %}

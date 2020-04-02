@@ -11,7 +11,7 @@
 			<div style="font-family:roboto;text-align:center;font-style:normal;font-weight:500; font-size:42px;">Контакты</div>
 			<p><a class="telefonnnt" href="tel:8 800 777 26 47">8 800 777 26 47</a><br>(Звонок по России бесплатный)</p>
 			<p><a href="mailto:igor@equip-master.ru">igor@equip-master.ru</a></p>
-			<a href="https://vk.com/specsintez74" target="_blank"><img src="/img/vk.png" alt="Вконтакте"></a>
+			<a href="https://vk.com/specsintez74" target="_blank"><img src="{% static 'img/vk.png'%}" alt="Вконтакте"></a>
 			</div>
 
 			<div class="goroda">
@@ -53,6 +53,8 @@
                         <input class="name input2"  name="name" type="text" placeholder="Ваше имя">
                         <input class="tell  input2 phone-field"  required  name="phone" type="text" placeholder="Ваш телефон">
                          <input class="e-mail input2" name="email" type="text" placeholder="E-mail">
+                <input style="display: block" type="checkbox" name="agree">
+                <textarea style="display: block" name="message"  cols="30" rows="10"></textarea>
                         <button style="border-radius: 20px;    padding: 13px 40px;
     background: #2196F3;
     border: 1px solid #2196F3;color: #ffffff" class="feedback feedback3" type="submit">Получить консультацию</button>
@@ -86,7 +88,9 @@
                         <input class="name input2" id="static_name" name="name" type="text" placeholder="Ваше имя">
                         <input class="tell  input2 phone-field" id="static_phone" required  name="phone" type="text" placeholder="Ваш телефон">
                          <input class="e-mail input2" name="email" type="text" placeholder="E-mail">
-                        <button style="border-radius: 20px;    padding: 13px 40px;
+                  <input style="display: none" type="checkbox" name="agree">
+                <textarea style="display: none" name="message"  cols="30" rows="10"></textarea>
+                  <button style="border-radius: 20px;    padding: 13px 40px;
     background: #2196F3;
     border: 1px solid #2196F3;color: #ffffff" class="feedback feedback3" type="submit">Получить консультацию</button>
               </form>

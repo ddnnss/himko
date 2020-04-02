@@ -24,7 +24,7 @@ class ItemsSitemap(Sitemap):
     changefreq = "monthly"
     priority = 0.5
     def items(self):
-        return Item.objects.all()
+        return Item.objects.filter(category__isnull=False)
 # class BlogSitemap(Sitemap):
 #     changefreq = "monthly"
 #     priority = 0.5
