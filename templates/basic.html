@@ -109,6 +109,54 @@ element.hide();
 
 {% include 'footer.html' %}
 
+<script>
+     function search(el) {
+         let csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0].value
+        let citySelectList = document.getElementById('search-result')
+        let citySelectList1 = document.getElementById('search-result1')
+
+        if (el.value.length <= 2){
+            console.log('too small')
+            return
+        }else{
+            console.log(el.value)
+            el.disabled = true
+            let body = {'query':el.value}
+            fetch('/search/', {
+                method: 'post',
+                body: JSON.stringify(body),
+                headers: { "X-CSRFToken": csrfmiddlewaretoken },
+                credentials: 'same-origin'
+            }).then(res=>res.json())
+                .then(res => {
+                    console.log(res)
+                    el.disabled = false
+                    el.focus()
+                    if (res.length >= 1){
+                        citySelectList.innerHTML = ''
+                        citySelectList1.innerHTML = ''
+                        for(i of res){
+
+                            citySelectList.innerHTML = citySelectList.innerHTML +
+                                    `  <a href="${i['url']}">${i['name']}</a>`
+                       //         `<p data-id="${i['id']}" data-city="${i['city']}" data-region="${i['region']}" class="city-select-list-item" onclick="setCity(this)">
+                       //          ${i['city']}
+                       //          <span>${i['region']}</span>
+                       //      </p>`
+                        }
+                        citySelectList1.innerHTML = citySelectList.innerHTML
+                        citySelectList.classList.add('list-active')
+                        citySelectList1.classList.add('list-active')
+                    }else{
+                        citySelectList.classList.remove('list-active')
+                        citySelectList1.classList.remove('list-active')
+                    }
+
+                })
+        }
+
+    }
+</script>
 
 </body>
 </html>

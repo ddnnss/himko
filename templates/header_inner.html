@@ -17,10 +17,16 @@
 			<li><a class="{{ about_active }}" href="{% url 'about_us' %}">Почему мы?</a></li>
 			<li><a class="{{ reviews_active }}" href="{% url 'reviews' %}">Отзывы</a></li>
             <li><a class="{{ catalog_active }}" href="{% url 'catalog' %}">Каталог</a></li>
-            <li class="noborder"><a class="{{ cart_active }}" href="{% url 'cart' %}"> Заказы <span id="cart_count" style="    background: #8da82e;
+            <li ><a class="{{ cart_active }}" href="{% url 'cart' %}"> Заказы <span id="cart_count" style="    background: #8da82e;
     padding: 5px 10px;
     border-radius: 50%;">{{ count_items_in_cart }}</span> </a></li>
-		</ul>
+		    <li class="noborder search-wrapper" > <input class="search-input" type="text" placeholder="Поиск" onkeyup="search(this)">
+                 <div id="search-result" class="search-result">
+                </div>
+
+            </li>
+        </ul>
+
 	</div>
 
 	<div class="slogan">ПРОФЕССИОНАЛЬНЫЕ МОЮЩИЕ И ДЕЗИНФИЦИРУЮЩИЕ СРЕДСТВА ДЛЯ ПРЕДПРИЯТИЙ</div>

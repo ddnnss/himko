@@ -21,6 +21,7 @@ urlpatterns = [
     path('robots.txt', views.robots, name='robots'),
     path('remove/<id>', views.remove, name='remove'),
     path('make_slug_dfp217230lf', views.make_slug, name='make_slug'),
+    path('search/', views.search, name='search'),
     # path('test/', views.test, name='test'),
     # path('test1/', views.test1, name='test1')
 

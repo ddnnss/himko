@@ -130,6 +130,20 @@ def make_slug(request):
     for i in items:
         print(i.name)
         i.save()
+
+def search(request):
+    request_unicode = request.body.decode('utf-8')
+    request_body = json.loads(request_unicode)
+    print(request_body)
+    cities = Item.objects.filter(name__contains=request_body['query'].capitalize())
+
+    return_dict = list()
+    for i in cities:
+        try:
+            return_dict.append({'url': i.get_absolute_url(), 'name': i.name})
+        except:
+            pass
+    return JsonResponse(return_dict, safe=False)
 """
 
 
