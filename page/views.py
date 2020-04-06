@@ -18,7 +18,7 @@ def index(request):
     if not s_key:
         request.session.cycle_key()
     print(s_key)
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
 
     return render(request, 'page/index.html', locals())
 
@@ -26,12 +26,12 @@ def index(request):
 def catalog(request):
     catalog_active = 'orangelink'
 
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/all_category.html', locals())
 
 def catalog_inner(request, cat_slug):
     catalog_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     cat = Category.objects.get(name_slug=cat_slug)
     if cat.page_h1:
         h1= cat.page_h1
@@ -41,42 +41,43 @@ def catalog_inner(request, cat_slug):
     description = cat.page_description
     keywords = cat.page_keywords
     all_items = Item.objects.filter(category=cat)
+
     return render(request, 'page/catalog.html', locals())
 
 def item(request, cat_slug,item_slug):
     item = get_object_or_404(Item,name_slug=item_slug)
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/item.html', locals())
     pass
 
 def about_us(request):
     about_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/about.html', locals())
 
 def contacts(request):
     contacts_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/contacts.html', locals())
 
 def how_it_works(request):
     work_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/how_it_works.html', locals())
 
 def order_delivery(request):
     order_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/order_delivery.html', locals())
 
 def reviews(request):
     reviews_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/reviews.html', locals())
 
 def cart(request):
     cart_active = 'orangelink'
-    all_cats = Category.objects.all()
+    all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/cart.html', locals())
 
 def order(request):
@@ -107,7 +108,9 @@ def callback(request):
     if not request.POST.get('agree') and not request.POST.get('message'):
         Callback.objects.create(name=request.POST.get('name'),
                              email=request.POST.get('email'),
-                             phone=request.POST.get('phone'))
+                             phone=request.POST.get('phone'),
+                                item=request.POST.get('item')
+                                )
         messages.success(request, 'Спасибо, форма успешно отправлена')
         print('send')
     else:

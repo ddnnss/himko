@@ -16,7 +16,7 @@ class Category(models.Model):
     short_description = models.TextField('Краткое описание', blank=True)
     views = models.IntegerField('Просмотров', default=0)
     is_active = models.BooleanField('Отображать категорию ?', default=True, db_index=True)
-
+    order_num = models.IntegerField('Номер п/п', default=10)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -32,16 +32,19 @@
 
 
                             </div>
+                            <div style="position: relative; margin-bottom: 30px" class="">
+                               {{ item.price | prices | safe}}
+                                <a class="item-card-btn blue return-btn" href="{% url 'catalog' %}">Вернуться в каталог</a>
+                            </div>
 
-                            {{ item.price | prices | safe}}
 
                             <div  class="item-card-block">
-                                <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue" >Положить в корзину</div>
-                                <a class="item-card-btn green" href="{% url 'cart' %}">Перейти в корзину</a>
+                                <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue mb-10" >Добавить в заказ</div>
+                                <a class="item-card-btn green" href="{% url 'cart' %}">Перейти к заказам</a>
                             </div>
                             <div class="warningeb">
-                                <p><a  href="{% url 'catalog' %}">Вернуться в каталог</a></p>
-                                <p>Нашли дешевле? Поторгуемся?</p></div><div onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button item-card-btn red">Получить скидку</div>
+{#                                <p><a  href="{% url 'catalog' %}">Вернуться в каталог</a></p>#}
+                                <p>Нашли дешевле? Поторгуемся?</p></div><div data-item="{{ item.name }}" onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn2 item-card-btn red">Получить скидку</div>
 
 
 

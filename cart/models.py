@@ -25,7 +25,11 @@ class Order(models.Model):
 
 
 def order_ps(sender, instance, **kwargs):
-    msg_html = render_to_string('email/order.html', {'user': instance.name, 'phone': instance.phone, 'email': instance.email, 'order': instance.order})
+    msg_html = render_to_string('email/order.html', {'user': instance.name,
+                                                     'phone': instance.phone,
+                                                     'email': instance.email,
+                                                     'id': instance.id,
+                                                     'order': instance.order})
     send_mail('Новый заказ на сайте specsintez-pro.ru', None, 'no-reply@specsintez-pro.ru', [settings.SEND_TO],
               fail_silently=False, html_message=msg_html)
 
