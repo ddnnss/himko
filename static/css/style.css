@@ -1393,7 +1393,10 @@ background: red;
 .item-card-block{
 	display: flex;
 	flex-direction: column}
-
+.item-prices{
+	position: relative;
+	margin-bottom: 30px
+}
 @media (max-width: 850px){
 	.price{
 		grid-template-columns: 1fr;
@@ -1407,6 +1410,15 @@ background: red;
 		margin: 0 auto;
 		padding: 10px 25px;
 		float: none;
+	}
+	.return-btn{
+		position: relative;
+		margin-top: 10px !important;
+	}
+	.item-prices{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 }
 
