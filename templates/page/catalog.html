@@ -35,6 +35,7 @@
                             <div style="position: relative; margin-bottom: 30px" class="">
                                {{ item.price | prices | safe}}
                                 <a class="item-card-btn blue return-btn" href="{% url 'catalog' %}">Вернуться в каталог</a>
+
                             </div>
 
 
@@ -44,7 +45,9 @@
                             </div>
                             <div class="warningeb">
 {#                                <p><a  href="{% url 'catalog' %}">Вернуться в каталог</a></p>#}
-                                <p>Нашли дешевле? Поторгуемся?</p></div><div data-item="{{ item.name }}" onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn2 item-card-btn red">Получить скидку</div>
+                                <p>Нашли дешевле? Поторгуемся?</p>
+                             <p >Пишите нам на <a href="viber://add?number=79000675472">viber</a> или <a href="https://wa.me/79000675472">whatsapp</a></p>
+                            </div><div data-item="{{ item.name }}" onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn2 item-card-btn red">Получить скидку</div>
 
 
 
