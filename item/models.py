@@ -50,6 +50,8 @@ class Item(models.Model):
         blank=True, null=True)
     price = models.CharField('Цена', max_length=255, blank=True, null=True)
 
+    doc = models.FileField('Инструкция', blank=True, null=True)
+
     def __str__(self):
         return 'id:%s %s ' % (self.id, self.name)
 

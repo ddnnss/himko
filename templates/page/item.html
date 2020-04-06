@@ -18,12 +18,12 @@
                 <h2 style="margin-bottom: 60px">{{ cat.name }}</h2>
 
 
-
-                    <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img class="sredstvo-img" src="{{ item.image.url }}">
-                        <div class="sr-text"><h1>{{ item.name }}</h1>
+                <div itemscope itemtype="http://schema.org/Product">
+                    <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img itemprop="image" class="sredstvo-img" src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div itemprop="name" class="sr-text"><h1>{{ item.name }}</h1>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
-                            <div id="readmore">
+                            <div itemprop="description" id="readmore">
                                 {{ item.text1 | safe }}
 
 
@@ -33,11 +33,17 @@
                             </div>
 
                               <div   class="item-prices">
-                               {{ item.price | prices | safe}}
+                                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    {{ item.price | prices | safe}}
+                                    <meta itemprop="priceCurrency" content="RUB">
+                                   </div>
                                 <a class="item-card-btn blue return-btn" href="{{ request.META.HTTP_REFERER }}">Вернуться в каталог</a>
                             </div>
 
                             <div  class="item-card-block">
+                                {% if item.doc %}
+                                <h2> <a href="{{ item.doc.url }}">Инструкция по применению {{ item.name }}</a></h2>
+                                {% endif %}
                                 <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue mb-10" >Добавить в заказ</div>
                                 <a class="item-card-btn green" href="{% url 'cart' %}">Перейти к заказам</a>
                             </div>
@@ -46,12 +52,12 @@
                                 <p>Нашли дешевле? Поторгуемся?</p>
                              <p >Пишите нам на <a href="viber://add?number=79000675472"><b>Viber</b></a> или <a href="https://wa.me/79000675472"><b>WhatsApp</b></a></p>
                             </div><div  data-item="{{ item.name }}" onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn2 item-card-btn red">Получить скидку</div>
-
-
-
+                            {% if request.user.is_staff %}
+                            <a href="/admin/item/item/{{ item.id }}/change/">редактировать</a>
+                            {% endif %}
                         </div>
                     </div>
-
+                </div>
 
             </div>
         </div>
