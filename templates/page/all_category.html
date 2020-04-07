@@ -1,10 +1,10 @@
 {% extends 'basic.html' %}
 {% load static %}
 {% block title %}
-   Каталог Спецсинтез - продажа профессиональной химии в г. {{ request.subdomain.town }}
+   Каталог Спецсинтез - продажа профессиональной химии в  {{ request.subdomain.townAlias }}
 {% endblock %}
 {% block description %}
-   СпецСинтез - это профессиональные моющие средства для всех направлений бизнеса в г. {{ request.subdomain.town }}.
+   СпецСинтез - это профессиональные моющие средства для всех направлений бизнеса в  {{ request.subdomain.townAlias }}.
 {% endblock %}
 {% block content %}
     <div class="container">
@@ -12,7 +12,7 @@
        <div class="block-2">
             <div class="block-2-inside" id="katalog">
 
-                <h1>Каталог продукции</h1>
+                <h2>Каталог продукции</h2>
 
                 <div class="catalog" style="display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); grid-gap: 20px;">
                     {% for cat in all_cats %}

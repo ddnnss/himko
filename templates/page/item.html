@@ -2,10 +2,10 @@
 {% load static %}
 {% load mytags %}
 {% block title %}
-    Спецсинтез {{ item.name }} - купить в интернет-магазине недорого в г. {{ request.subdomain.town }}
+    Спецсинтез {{ item.name }} - купить в интернет-магазине недорого в {{ request.subdomain.townAlias }}
 {% endblock %}
 {% block description %}
-    В нашем интернет магазине Вы можете купить Спецсинтез {{ item.name }} по низкой цене в г. {{ request.subdomain.town }}, с доставкой по России!
+    В нашем интернет магазине Вы можете купить Спецсинтез {{ item.name }} по низкой цене в  {{ request.subdomain.townAlias }}, с доставкой по России!
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
 
                 <div itemscope itemtype="http://schema.org/Product">
                     <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img itemprop="image" class="sredstvo-img" src="{{ item.image.url }}" alt="{{ item.name }}">
-                        <div itemprop="name" class="sr-text"><h1>{{ item.name }}</h1>
+                        <div itemprop="name" class="sr-text"><h2>{{ item.name }}</h2>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
                             <div itemprop="description" id="readmore">
