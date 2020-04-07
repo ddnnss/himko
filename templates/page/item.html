@@ -2,10 +2,10 @@
 {% load static %}
 {% load mytags %}
 {% block title %}
-    Спецсинтез {{ item.name }} - купить в интернет-магазине недорого
+    Спецсинтез {{ item.name }} - купить в интернет-магазине недорого в г. {{ request.subdomain.town }}
 {% endblock %}
 {% block description %}
-    В нашем интернет магазине Вы можете купить Спецсинтез {{ item.name }} по низкой цене, с доставкой по России!
+    В нашем интернет магазине Вы можете купить Спецсинтез {{ item.name }} по низкой цене в г. {{ request.subdomain.town }}, с доставкой по России!
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,11 @@
 
                             <div  class="item-card-block">
                                 {% if item.doc %}
-                                <h2> <a href="{{ item.doc.url }}">Инструкция по применению {{ item.name }}</a></h2>
+                                    <div style="margin-bottom: 20px">
+                                    <h2 style="margin-bottom: 10px"> Инструкция по применению {{ item.name }}</h2>
+                                    <a href="{{ item.doc.url }}">Скачать инструкцию по применению {{ item.name }}</a>
+                                    </div>
+
                                 {% endif %}
                                 <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue mb-10" >Добавить в заказ</div>
                                 <a class="item-card-btn green" href="{% url 'cart' %}">Перейти к заказам</a>

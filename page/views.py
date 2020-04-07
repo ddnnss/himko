@@ -19,7 +19,7 @@ def index(request):
         request.session.cycle_key()
     print(s_key)
     all_cats = Category.objects.all().order_by('order_num')
-
+    print('request.subdomain', request.subdomain)
     return render(request, 'page/index.html', locals())
 
 

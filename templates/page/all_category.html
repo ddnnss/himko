@@ -1,10 +1,10 @@
 {% extends 'basic.html' %}
 {% load static %}
 {% block title %}
-   Каталог Спецсинтез - продажа профессиональной химии
+   Каталог Спецсинтез - продажа профессиональной химии в г. {{ request.subdomain.town }}
 {% endblock %}
 {% block description %}
-   СпецСинтез - это профессиональные моющие средства для всех направлений бизнеса.
+   СпецСинтез - это профессиональные моющие средства для всех направлений бизнеса в г. {{ request.subdomain.town }}.
 {% endblock %}
 {% block content %}
     <div class="container">

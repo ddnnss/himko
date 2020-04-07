@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'item',
     'page',
     'cart',
-    'ckeditor'
+    'ckeditor',
+    'subdomain'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'subdomain.middleware.check_domain.MyMiddleware'
 ]
 
 ROOT_URLCONF = 'himko.urls'
