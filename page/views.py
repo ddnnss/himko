@@ -34,9 +34,9 @@ def catalog_inner(request, cat_slug):
     all_cats = Category.objects.all().order_by('order_num')
     cat = Category.objects.get(name_slug=cat_slug)
     if cat.page_h1:
-        h1= cat.page_h1
+        h1 = f'{cat.page_h1} в {request.subdomain.townAlias}'
     else:
-        h1 = cat.name
+        h1 = f'{cat.name} в {request.subdomain.townAlias}'
     title = cat.page_title
     description = cat.page_description
     keywords = cat.page_keywords
@@ -100,7 +100,12 @@ def order(request):
     return JsonResponse(return_dict)
 
 def robots(request):
-    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://specsintez-pro.ru/\nSitemap: https://specsintez-pro.ru/sitemap.xml"
+    subdomain = request.subdomain
+    if subdomain and not request.homedomain:
+        robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: {settings.PROTOCOL}{subdomain.name}.{settings.MAIN_DOMAIN}.ru/\nSitemap:{settings.PROTOCOL}{subdomain.name}.{settings.MAIN_DOMAIN}.ru/sitemap.xml"
+    else:
+        robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: {settings.PROTOCOL}{settings.MAIN_DOMAIN}.ru/\nSitemap: {settings.PROTOCOL}{settings.MAIN_DOMAIN}.ru/sitemap.xml"
+
     return HttpResponse(robotsTxt, content_type="text/plain")
 
 def callback(request):
