@@ -110,7 +110,7 @@ def robots(request):
 
 def callback(request):
     print(request.POST)
-    if not request.POST.get('agree') and not request.POST.get('message'):
+    if not request.POST.get('agree') and not request.POST.get('message') and not request.POST.get('name') == '' and not request.POST.get('phone') == '':
         Callback.objects.create(name=request.POST.get('name'),
                              email=request.POST.get('email'),
                              phone=request.POST.get('phone'),
