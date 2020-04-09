@@ -18,6 +18,7 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
     path('order/', views.order, name='order'),
     path('callback/', views.callback, name='callback'),
+    path('kv/', views.kv, name='kv'),
     path('robots.txt', views.robots, name='robots'),
     path('remove/<id>', views.remove, name='remove'),
     path('make_slug_dfp217230lf', views.make_slug, name='make_slug'),

@@ -2,10 +2,14 @@ import json
 
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+
 from item.models import *
 from cart.models import *
 from .models import Callback
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 def index(request):
     index_active='orangelink'
@@ -121,6 +125,25 @@ def callback(request):
     else:
         print('not send')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+@csrf_exempt
+def kv(request):
+
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    print(body)
+    msg_html = render_to_string('email/kviz.html', {'type': body["type"],
+                                                        'q1': body["q1"],
+                                                        'q2': body["q2"],
+                                                        'q3': body["q3"],
+                                                        'q4': body["q4"],
+                                                        'q5': body["q5"],
+                                                        'q6': body["q6"]})
+
+    send_mail(f'Заполнен квиз на сайте http://{body["type"]}.ru', None, 'no-reply@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponseRedirect(f'http://{body["type"]}.ru/thanks.html')
 
 def remove(request,id):
     s_key = request.session.session_key
