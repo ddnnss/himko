@@ -129,21 +129,49 @@ def callback(request):
 @csrf_exempt
 def kv(request):
 
-    body_unicode = request.body.decode('utf-8')
-    body = json.loads(body_unicode)
-    print(body)
-    msg_html = render_to_string('email/kviz.html', {'type': body["type"],
-                                                        'q1': body["q1"],
-                                                        'q2': body["q2"],
-                                                        'q3': body["q3"],
-                                                        'q4': body["q4"],
-                                                        'q5': body["q5"],
-                                                        'q6': body["q6"]})
+    # body_unicode = request.body.decode('utf-8')
+    # body = json.loads(body_unicode)
+    # print(body)
 
-    send_mail(f'Заполнен квиз на сайте http://{body["type"]}.ru', None, 'no-reply@specsintez-pro.ru',
+    msg_html = render_to_string('email/kviz.html', {'type': request.GET.get("type"),
+                                                        'q1': request.GET.get("q1"),
+                                                        'q2': request.GET.get("q2"),
+                                                        'q3': request.GET.get("q3"),
+                                                        'q4': request.GET.get("q4"),
+                                                        'q5': request.GET.get("q5"),
+                                                        'q6': request.GET.get("q6")})
+
+    send_mail(f'Заполнен квиз на сайте http://{request.GET.get("type")}.ru', None, 'no-reply@specsintez-pro.ru',
+              ['astralid4@astrapromo.ru'],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponseRedirect(f'http://{request.GET.get("type")}.ru/thanks.html')
+
+def kv1(request):
+    msg_html = render_to_string('email/kviz1.html', {
+                                                    'q1': request.GET.get("q1"),
+                                                    'q2': request.GET.get("q2"),
+                                                    'q3': request.GET.get("q3"),
+                                                    'q4': request.GET.get("q4"),
+                                                    'q5': request.GET.get("q5"),
+                                                    'q6': request.GET.get("q6"),
+                                                    'q7': request.GET.get("q7"),
+                                                    'q8': request.GET.get("q8")})
+
+    send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
               [settings.SEND_TO],
               fail_silently=False, html_message=msg_html)
-    return HttpResponseRedirect(f'http://{body["type"]}.ru/thanks.html')
+    return HttpResponseRedirect(f'http://localhost:3000/thanks.html')
+
+def cb_form(request):
+    msg_html = render_to_string('email/cb_form.html', {
+                                                    'p': request.GET.get("phone"),
+                                                    'n': request.GET.get("name"),
+                                                   })
+
+    send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponseRedirect(f'http://localhost:3000/?sent=ok')
 
 def remove(request,id):
     s_key = request.session.session_key
