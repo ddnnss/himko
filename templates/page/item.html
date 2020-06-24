@@ -16,7 +16,9 @@
             <div class="block-catalog-inside">
 
                 <h2 style="margin-bottom: 60px">{{ cat.name }}</h2>
-
+                 {% if request.user.is_authenticated %}
+                                 <a target="_blank" style="top: 50px;" class="item-card-btn red return-btn" href="/admin/item/item/{{ item.id }}/change/">Редактировать товар</a>
+                                {% endif %}
 
                 <div itemscope itemtype="http://schema.org/Product">
                     <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img itemprop="image" class="sredstvo-img" src="{{ item.image.url }}" alt="{{ item.name }}">

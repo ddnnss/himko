@@ -49,6 +49,7 @@ class Item(models.Model):
         'Краткое описание товара (отображается в карточке товара)',
         blank=True, null=True)
     price = models.CharField('Цена', max_length=255, blank=True, null=True)
+    new_price = models.CharField('Старая цена', max_length=255, blank=True, null=True, default=0)
 
     doc = models.FileField('Инструкция', blank=True, null=True)
 
