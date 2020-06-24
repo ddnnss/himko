@@ -1355,8 +1355,7 @@ input[type=number]::-webkit-outer-spin-button {
 .return-btn{
 	    position: absolute;
     right: 0;
-    left: 0;
-    margin: auto !important;
+
     top: 0;
 }
 .item-card-btn{

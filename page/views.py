@@ -115,12 +115,13 @@ def robots(request):
 def callback(request):
     print(request.POST)
     if not request.POST.get('agree') and not request.POST.get('message') and not request.POST.get('name') == '' and not request.POST.get('phone') == '':
-        Callback.objects.create(name=request.POST.get('name'),
-                             email=request.POST.get('email'),
-                             phone=request.POST.get('phone'),
-                                item=request.POST.get('item')
-                                )
-        messages.success(request, 'Спасибо, форма успешно отправлена')
+        if request.POST.get('phone'):
+            Callback.objects.create(name=request.POST.get('name'),
+                                 email=request.POST.get('email'),
+                                 phone=request.POST.get('phone'),
+                                    item=request.POST.get('item')
+                                    )
+            messages.success(request, 'Спасибо, форма успешно отправлена')
         print('send')
     else:
         print('not send')
@@ -134,6 +135,8 @@ def kv(request):
     # print(body)
 
     msg_html = render_to_string('email/kviz.html', {'type': request.GET.get("type"),
+                                                        'theme': request.GET.get("theme"),
+                                                        'mess': request.GET.get("mess"),
                                                         'q1': request.GET.get("q1"),
                                                         'q2': request.GET.get("q2"),
                                                         'q3': request.GET.get("q3"),
@@ -142,7 +145,7 @@ def kv(request):
                                                         'q6': request.GET.get("q6")})
 
     send_mail(f'Заполнен квиз на сайте http://{request.GET.get("type")}.ru', None, 'no-reply@specsintez-pro.ru',
-              ['astralid4@astrapromo.ru'],
+              ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://{request.GET.get("type")}.ru/thanks.html')
 
@@ -155,12 +158,13 @@ def kv1(request):
                                                     'q5': request.GET.get("q5"),
                                                     'q6': request.GET.get("q6"),
                                                     'q7': request.GET.get("q7"),
-                                                    'q8': request.GET.get("q8")})
+                                                    'q8': request.GET.get("q8"),
+                                                    'type': request.GET.get("type")})
 
     send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
-              [settings.SEND_TO],
+              ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
-    return HttpResponseRedirect(f'http://localhost:3000/thanks.html')
+    return HttpResponseRedirect(f'http://remont.astralid2.ru/thanks.html')
 
 def cb_form(request):
     msg_html = render_to_string('email/cb_form.html', {
@@ -169,9 +173,9 @@ def cb_form(request):
                                                    })
 
     send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
-              [settings.SEND_TO],
+              ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
-    return HttpResponseRedirect(f'http://localhost:3000/?sent=ok')
+    return HttpResponseRedirect(f'http://remont.astralid2.ru/?sent={request.GET.get("type")}')
 
 def remove(request,id):
     s_key = request.session.session_key
