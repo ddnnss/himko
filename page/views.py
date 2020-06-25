@@ -38,9 +38,9 @@ def catalog_inner(request, cat_slug):
     all_cats = Category.objects.all().order_by('order_num')
     cat = Category.objects.get(name_slug=cat_slug)
     if cat.page_h1:
-        h1 = f'{cat.page_h1} в {request.subdomain.townAlias}'
+        h1 = f'{cat.page_h1}' # в {request.subdomain.townAlias}'
     else:
-        h1 = f'{cat.name} в {request.subdomain.townAlias}'
+        h1 = f'{cat.name}' # в {request.subdomain.townAlias}'
     title = cat.page_title
     description = cat.page_description
     keywords = cat.page_keywords
