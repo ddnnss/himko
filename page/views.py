@@ -29,7 +29,8 @@ def index(request):
 
 def catalog(request):
     catalog_active = 'orangelink'
-
+    pageTitle='Каталог Спецсинтез - продажа профессиональной химии в москве и МО'
+    pageDescription='Каталог Спецсинтез - продажа профессиональной химии в москве и МО'
     all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/all_category.html', locals())
 
@@ -41,9 +42,8 @@ def catalog_inner(request, cat_slug):
         h1 = f'{cat.page_h1}' # в {request.subdomain.townAlias}'
     else:
         h1 = f'{cat.name}' # в {request.subdomain.townAlias}'
-    title = cat.page_title
-    description = cat.page_description
-    keywords = cat.page_keywords
+    pageTitle = f'Каталог профессиональной химии {cat.name.lower()} от компании Спецсинтез в Москве И МО'
+    pageDescription = f'   В нашем интернет магазине Вы можете купить профессиональную химию {cat.name.lower()} по низкой цене , с доставкой по России!'
     all_items = Item.objects.filter(category=cat)
 
     return render(request, 'page/catalog.html', locals())
