@@ -22,14 +22,14 @@
                     <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img class="sredstvo-img" src="{{ item.image.url }}">
                         <div class="sr-text"><a href="{{ item.get_absolute_url }}" style="text-decoration:none !important;    color: #2196f3;
     border-bottom: 1px solid #2196f3;"><span>{{ item.name }}</span></a>
-                            <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
-                                Действительные цены уточняйте пожалуйста у менеджеров.</p>
+
                         {% if item.add_text %}
                             <p style="margin-bottom: 10px">item.add_text</p>
                         {% endif %}
                             <div id="readmore">
                                 {{ item.text1 | safe }}
-
+                                <p >Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
+                                Действительные цены уточняйте пожалуйста у менеджеров.</p>
                                 <p><a href="{{ item.get_absolute_url }}" style="text-decoration:none !important;    color: #2196f3;
     border-bottom: 1px solid #2196f3;">Подробнее</a></p>
 
