@@ -40,7 +40,7 @@ class Item(models.Model):
     category = models.ManyToManyField(Category, blank=True, null=True, db_index=True,verbose_name='Категория')
     name = models.CharField('Название товара', max_length=255, blank=False, null=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True)
-
+    add_text = models.TextField('Доп. текст', blank=True,null=True)
     image = models.ImageField('Картинка',upload_to='item/',blank=True, null=True)
     text1 = models.TextField(
         'Краткое описание товара (отображается в карточке товара)',

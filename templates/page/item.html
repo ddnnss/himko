@@ -25,6 +25,9 @@
                         <div itemprop="name" class="sr-text"><h2 style="font-size: 25px;">{{ item.name }}</h2>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
+                         {% if item.add_text %}
+                            <p style="margin-bottom: 10px">item.add_text</p>
+                        {% endif %}
                             <div itemprop="description" id="readmore">
                                 {{ item.text1 | safe }}
 

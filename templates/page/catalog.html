@@ -24,6 +24,9 @@
     border-bottom: 1px solid #2196f3;"><span>{{ item.name }}</span></a>
                             <p style=" font-size: 13px; color: #f01420; border: 1px solid red; padding: 10px;">Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
+                        {% if item.add_text %}
+                            <p style="margin-bottom: 10px">item.add_text</p>
+                        {% endif %}
                             <div id="readmore">
                                 {{ item.text1 | safe }}
 
