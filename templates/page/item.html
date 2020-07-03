@@ -21,7 +21,8 @@
                                 {% endif %}
 
                 <div itemscope itemtype="http://schema.org/Product">
-                    <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo"><img itemprop="image" class="sredstvo-img" src="{{ item.image.url }}" alt="{{ item.name }}">
+                    <div style="padding-top: 80px; margin-top: -40px;" id="{{ item.name | make_slug }}" class="sredstvo">
+                        <img itemprop="image" class="sredstvo-img" src="{{ item.image.url }}" alt="{{ item.name }}">
                         <div itemprop="name" class="sr-text"><h2 style="font-size: 25px;">{{ item.name }}</h2>
 
                          {% if item.add_text %}
@@ -29,12 +30,9 @@
                         {% endif %}
                             <div itemprop="description" id="readmore">
                                 {{ item.text1 | safe }}
-
-
-
-                                <div >
+                                <div>
                                     {{ item.text2 | safe }}
-                                     <p >Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
+                                     <p>Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
                                 Действительные цены уточняйте пожалуйста у менеджеров.</p>
                                 </div>
                             </div>
@@ -71,7 +69,7 @@
 
                             </div><div  data-item="{{ item.name }}" onclick="ga('send','event','submint','main_zakaz_tovara'); yaCounter54989140.reachGoal('main_zakaz_tovara'); return true;" class="button modal_btn2 item-card-btn red">Получить скидку</div>
                              {% endif %}
-                            {% if request.user.is_staff %}
+                            {% if request.user.is_superuser %}
                             <a href="/admin/item/item/{{ item.id }}/change/">редактировать</a>
                             {% endif %}
                         </div>

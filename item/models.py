@@ -36,7 +36,7 @@ class Category(models.Model):
 
 
 class Item(models.Model):
-
+    order_num = models.IntegerField('Порядок', default=100)
     category = models.ManyToManyField(Category, blank=True, null=True, db_index=True,verbose_name='Категория')
     name = models.CharField('Название товара', max_length=255, blank=False, null=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True)
@@ -70,5 +70,6 @@ class Item(models.Model):
         return f'/catalog/{self.category.first().name_slug}/{self.name_slug}/'
 
     class Meta:
+        ordering = ('order_num',)
         verbose_name = "Товар"
         verbose_name_plural = "Товары"
