@@ -56,6 +56,27 @@
   // ]]></script>
 <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?156",t.onload=function(){VK.Retargeting.Init("VK-RTRG-257434-ddnFa"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-257434-ddnFa" alt=""/></noscript>
   <style>
+      .submenu{
+          position: absolute;
+          background: #2196f3;
+          width: 100%;
+          opacity: 0;
+          pointer-events: none;
+          z-index: 100;
+      }
+      .submenu.submenuActive{
+           opacity: 1;
+          pointer-events: all;
+      }
+       .submenu ul{
+           display: flex;
+           flex-direction: column;
+
+       }
+        .submenu ul li a{
+            color: #ffffff;
+
+        }
     .youtube {
     background-position: center;
     background-repeat: no-repeat;
@@ -110,6 +131,25 @@ element.hide();
 {% include 'footer.html' %}
 
 <script>
+    let ms = document.getElementById('ms')
+    let ms1 = document.getElementById('ms1')
+
+    function mtHover(type) {
+        if (type==='ms'){
+           ms.classList.add('submenuActive')
+        }else{
+            ms1.classList.add('submenuActive')
+        }
+
+    }
+    function mtNotHover(type) {
+        if (type==='ms'){
+           ms.classList.remove('submenuActive')
+        }else{
+            ms1.classList.remove('submenuActive')
+        }
+    }
+
      function search(el) {
          let csrfmiddlewaretoken = document.getElementsByName('csrfmiddlewaretoken')[0].value
         let citySelectList = document.getElementById('search-result')

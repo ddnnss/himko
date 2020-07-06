@@ -28,8 +28,8 @@
                         {% endif %}
                             <div id="readmore">
                                 {{ item.text1 | safe }}
-                                <p >Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
-                                Действительные цены уточняйте пожалуйста у менеджеров.</p>
+{#                                <p >Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.#}
+{#                                Действительные цены уточняйте пожалуйста у менеджеров.</p>#}
                                 <p><a href="{{ item.get_absolute_url }}" style="text-decoration:none !important;    color: #2196f3;
     border-bottom: 1px solid #2196f3;">Подробнее</a></p>
 
@@ -52,7 +52,10 @@
 
                             <div  class="item-card-block">
                                 <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue mb-10" >Добавить в заказ</div>
+                                {% if count_items_in_cart > 0 %}
                                 <a class="item-card-btn green" href="{% url 'cart' %}">Перейти к заказам</a>
+                                {% endif %}
+
                             </div>
                             <div class="warningeb">
 {#                                <p><a  href="{% url 'catalog' %}">Вернуться в каталог</a></p>#}

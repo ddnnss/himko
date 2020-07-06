@@ -32,8 +32,8 @@
                                 {{ item.text1 | safe }}
                                 <div>
                                     {{ item.text2 | safe }}
-                                     <p>Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.
-                                Действительные цены уточняйте пожалуйста у менеджеров.</p>
+{#                                     <p>Уважаемые клиенты! В связи с постоянно меняющимся курсом валют и удорожанием сырья, цены на сайте могут быть не актуальны.#}
+{#                                Действительные цены уточняйте пожалуйста у менеджеров.</p>#}
                                 </div>
                             </div>
 
@@ -59,7 +59,9 @@
 
                                 {% endif %}
                                 <div data-item_id="{{ item.id }}"  data-item_image="{{ item.image.url }}" data-item_name="{{ item.name }}" onclick="add_to_cart(this)" class="button item-card-btn blue mb-10" >Добавить в заказ</div>
+                                 {% if count_items_in_cart > 0 %}
                                 <a class="item-card-btn green" href="{% url 'cart' %}">Перейти к заказам</a>
+                                {% endif %}
                             </div>
                             <div class="warningeb">
 {#                                <p><a  href="{{ request.META.HTTP_REFERER }}">Вернуться в каталог</a></p>#}

@@ -59,6 +59,16 @@ def about_us(request):
     all_cats = Category.objects.all().order_by('order_num')
     return render(request, 'page/about.html', locals())
 
+def delivery(request):
+    about_active = 'orangelink'
+    all_cats = Category.objects.all().order_by('order_num')
+    return render(request, 'page/delivery.html', locals())
+
+def product(request):
+    about_active = 'orangelink'
+    all_cats = Category.objects.all().order_by('order_num')
+    return render(request, 'page/product.html', locals())
+
 def contacts(request):
     contacts_active = 'orangelink'
     all_cats = Category.objects.all().order_by('order_num')
