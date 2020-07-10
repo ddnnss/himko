@@ -26,6 +26,7 @@ class Order(models.Model):
 
     def is_doc(self):
         if self.doc:
+            print(self.doc.url)
             return self.doc.url
         else:
             return False
