@@ -58,14 +58,33 @@
 
             </div>
             <div class="forma-skidka2" style="width: auto !important;max-width: 1170px; margin: 0 auto">
-                <div class="forma-title"></div>
-                <form style="text-align: center" name="form-2"  >
-                    <input class="name" name="name" id="form_name" type="text" placeholder="Ваше имя">
-                    <input class="tell"  name="tell" id="form_email" type="email" placeholder="Ваша почта">
-                    <input class="tell phone-field"  id="form_phone" name="tell" type="text" placeholder="Ваш телефон" >
-                    <a style=" display: block; background: #2196F3 ; padding: 10px 20px; border-radius: 20px;
+
+                <form id="order_form" style="text-align: center" name="form-2"  method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="">
+                        <p style="margin: 0 0 20px 0;" >Планируете заказать на:</p>
+                    </div>
+
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <label onclick="checkM()" style="font-size: 20px; flex-basis: 100%;" for="type_man">
+                         <input style="height: unset; width: unset" id="type_man" checked type="radio"  name="customer_type" value="man"> Частное лицо
+
+                    </label>
+                    <label onclick="checkO()" style="font-size: 20px; flex-basis: 100%;" for="type_org">
+                        <input style="height: unset; width: unset" id="type_org" type="radio"  name="customer_type" value="org"> Юридическое лицо
+                    </label>
+
+                </div>
+                    <div id="doc_div" style="display: none">
+                        <p style="margin: 0 ;">Прикрепите карточку предприятия</p>
+                      <input type="file" name="doc">
+                    </div>
+
+                    <input class="name" name="name" id="name" type="text" placeholder="Ваше имя">
+                    <input class="tell"  name="email" id="email" type="email" placeholder="Ваша почта">
+                    <input class="tell phone-field"  id="phone" required name="phone" type="text" placeholder="Ваш телефон" >
+                    <button style=" display: block; background: #2196F3 ; padding: 10px 20px; border-radius: 20px;
                         color: white;text-decoration: none;  width: 250px;
-                        margin: 0 auto; margin-bottom: 20px" href="javascript: void(0)"  class=" " onclick="submit()" >Отправить заявку</a>
+                        margin: 0 auto; margin-bottom: 20px" type="submit"  class=" " >Отправить заявку</button>
                 </form>
             </div>
             <div style="display: none" class="slogan">Спасибо, заявка отправлена. Номер заявки <span id="o_number"></span></div>
@@ -83,13 +102,22 @@
     </div>
 
     <script>
+
         $( document ).ready(function() {
             console.log( "ready!" );
 
             //a[0].lastElementChild.options[a[0].lastElementChild.selectedIndex].value;
             calc()
         });
+        function checkM() {
+            console.log('ss')
+            document.getElementById('doc_div').style.display = 'none'
 
+        }
+         function checkO() {
+            document.getElementById('doc_div').style.display = 'block'
+
+        }
         function calc() {
             let totalPrice = 0
             items = document.getElementsByClassName('item')
@@ -105,6 +133,47 @@
 
             $('#total').text(totalPrice)
         }
+
+         $('#order_form').submit(function(e){
+            e.preventDefault();
+         $form = $(this)
+              all_items = {}
+            let data = {};
+
+            items = document.getElementsByClassName('item')
+             y=1
+             for (x of items){
+
+                temp=[]
+                number = parseInt(x.getElementsByTagName('input')[0].value)
+                item_volume =x.getElementsByTagName('select')[0].options[x.getElementsByTagName('select')[0].selectedIndex].innerText
+                item_name = x.getElementsByTagName('input')[0].dataset.name
+                temp.push(item_name,item_volume,number)
+                all_items[y] = temp
+                y+=1
+
+            }
+            var formData = new FormData(this);
+            formData.append( 'items', JSON.stringify(all_items))
+             console.log(formData)
+           $.ajax({
+                url: '{% url "order" %}',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+
+                    console.log(response)
+                    document.getElementsByClassName('forma-skidka2')[0].style.display='none'
+                    document.getElementsByClassName('slogan')[1].style.display='block'
+                    document.getElementById('o_number').innerText = response.order
+
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+         })
 
         function submit() {
             $('#form_phone').css('border-color','#ccc')

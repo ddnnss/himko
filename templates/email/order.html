@@ -28,6 +28,11 @@
                                     <strong>Почта</strong> : {{ email }}<br>
                                     <strong>Заказ</strong> : <p>{{ order }}</p>
 
+                                    {% if doc %}
+                                        <hr>
+                                        <strong>Прикреплен файл:</strong>
+                                        <a href="{{ doc }}">Ссылка</a>
+                                    {% endif %}
 
                                 </td>
                             </tr>

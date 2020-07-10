@@ -22,6 +22,15 @@ class Order(models.Model):
     phone = models.CharField('Телефон', max_length=255, blank=True, null=True)
     email = models.CharField('Почта', max_length=255, blank=True, null=True)
     order = models.TextField('Заказ', blank=True, null=True)
+    doc = models.FileField('Доки', blank=True,null=True,upload_to='docs/')
+
+    def is_doc(self):
+        if self.doc:
+            return self.doc.url
+        else:
+            return False
+
+
 
 
 def order_ps(sender, instance, **kwargs):
@@ -29,7 +38,8 @@ def order_ps(sender, instance, **kwargs):
                                                      'phone': instance.phone,
                                                      'email': instance.email,
                                                      'id': instance.id,
-                                                     'order': instance.order})
+                                                     'order': instance.order,
+                                                     'doc':instance.is_doc()})
     send_mail('Новый заказ на сайте specsintez-pro.ru', None, 'no-reply@specsintez-pro.ru', [settings.SEND_TO],
               fail_silently=False, html_message=msg_html)
 

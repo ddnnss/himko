@@ -10,6 +10,7 @@ from .models import Callback
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from .forms import *
 
 def index(request):
     index_active='orangelink'
@@ -97,20 +98,23 @@ def cart(request):
 def order(request):
     return_dict = {}
     print(request.POST)
+    form = NewOrderForm(request.POST, request.FILES)
     s_key = request.session.session_key
     text = ''
     a = json.loads(request.POST.get('items'))
+    new_order = None
     for x in a:
         str = f'{a[x][0]} - {a[x][1]} : {a[x][2]} шт. \n'
         text+=str
-    order = Order.objects.create(name=request.POST.get('form_name'),
-                         email=request.POST.get('form_email'),
-                         phone=request.POST.get('form_phone'),
-                         order=text)
-    print(order.id)
+    if form.is_valid():
+        new_order = form.save(commit=False)
+        new_order.order = text
+        new_order.save()
+
+    print(new_order.id)
     items = Cart.objects.filter(client=s_key)
     items.delete()
-    return_dict['order'] = order.id
+    return_dict['order'] = new_order.id
     return JsonResponse(return_dict)
 
 def robots(request):
