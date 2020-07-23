@@ -1,5 +1,5 @@
 import json
-
+import base64
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -180,6 +180,70 @@ def kv1(request):
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://remont.astralid2.ru/thanks.html')
 
+def stroika_quiz(request):
+    print(request.GET)
+    sq = None
+    price_per_m = 0
+    start_price = 0
+    end_price = 0
+    sqq = None
+    sq = None
+    typ=''
+    b64=''
+
+    msg_html = render_to_string('email/stroika_q.html', {
+                                                    'return_url':request.GET.get("return_url"),
+                                                    'q1': request.GET.get("q1"),
+                                                    'q2': request.GET.get("q2"),
+                                                    'q3': request.GET.get("q3"),
+                                                    'q4': request.GET.get("q4"),
+                                                    'q5': request.GET.get("q5"),
+                                                    'q6': request.GET.get("q6"),
+                                                    'q7': request.GET.get("q7"),
+                                                    'q8': request.GET.get("q8"),
+                                                    'type': request.GET.get("type")})
+
+    send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
+              ['greshnik.im@gmail.com'],
+              fail_silently=False, html_message=msg_html)
+
+    if request.GET.get("q1") != 'Пока не знаю':
+        s_temp = request.GET.get("q1").split(' ')
+        sqq = s_temp[0].split('-')
+
+
+
+
+    if request.GET.get("q2") != 'Пока не знаю' and sqq:
+        if request.GET.get("q2") == 'Косметический':
+            typ='kos'
+            price_per_m = 9000
+        if request.GET.get("q2") == 'Капитальный':
+            typ='kap'
+            price_per_m = 11000
+        if len(sqq) > 1:
+            start_price = int(sqq[0]) * price_per_m
+            end_price = int(sqq[1]) * price_per_m
+        else:
+            start_price = int(sqq[0]) * price_per_m
+
+        if not sqq:
+            start_price = 0
+
+        print(sq,sqq,start_price,end_price)
+
+        str =(f'{start_price},{end_price},{typ},{request.GET.get("q7")},{sqq}').encode('utf8')
+        base64_bytes = base64.b64encode(str)
+        b64 = base64_bytes.decode('ascii')
+        return HttpResponseRedirect(f'{request.GET.get("return_url")}/thanks.html?cid={b64}')
+    else:
+        return HttpResponseRedirect(f'{request.GET.get("return_url")}/thanks.html')
+
+
+
+
+
+
 def cb_form(request):
     msg_html = render_to_string('email/cb_form.html', {
                                                     'p': request.GET.get("phone"),
@@ -190,6 +254,19 @@ def cb_form(request):
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://remont.astralid2.ru/?sent={request.GET.get("type")}')
+
+def stroika_callback(request):
+    msg_html = render_to_string('email/stroika_cb.html', {
+                                                    'p': request.GET.get("phone"),
+                                                    't': request.GET.get("type"),
+                                                    's': request.GET.get("s"),
+                                                    's1': request.GET.get("s1"),
+                                                   })
+
+    send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
+              ['greshnik.im@gmail.com'],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponseRedirect(f'{request.GET.get("return_url")}?sent=done')
 
 def remove(request,id):
     s_key = request.session.session_key
