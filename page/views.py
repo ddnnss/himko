@@ -193,6 +193,7 @@ def stroika_quiz(request):
 
     msg_html = render_to_string('email/stroika_q.html', {
                                                     'return_url':request.GET.get("return_url"),
+                                                    'q0': request.GET.get("q0"),
                                                     'q1': request.GET.get("q1"),
                                                     'q2': request.GET.get("q2"),
                                                     'q3': request.GET.get("q3"),
