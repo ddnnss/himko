@@ -205,7 +205,7 @@ def stroika_quiz(request):
                                                     'type': request.GET.get("type")})
 
     send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
-              ['greshnik.im@gmail.com'],
+              ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
 
     if request.GET.get("q1") != 'Пока не знаю':
@@ -242,7 +242,26 @@ def stroika_quiz(request):
 
 
 
+def diz_quiz(request):
+    print(request.GET)
 
+    msg_html = render_to_string('email/diz_q.html', {
+                                                    'return_url':request.GET.get("return_url"),
+                                                    'show_room': request.GET.get("show_room"),
+                                                    'q1': request.GET.get("q1"),
+                                                    'q2': request.GET.get("q2"),
+                                                    'q3': request.GET.get("q3"),
+                                                    'q4': request.GET.get("q4"),
+                                                    'q5': request.GET.get("q5"),
+                                                    'q6': request.GET.get("q6"),
+                                                    'q7': request.GET.get("q7"),
+                                                    })
+
+    send_mail(f'Заполнен квиз на сайте дизайна', None, 'no-reply@specsintez-pro.ru',
+              ['igor@astrapromo.ru'],
+              fail_silently=False, html_message=msg_html)
+
+    return HttpResponseRedirect(f'{request.GET.get("return_url")}/thanks.html')
 
 
 def cb_form(request):
@@ -265,7 +284,7 @@ def stroika_callback(request):
                                                    })
 
     send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
-              ['greshnik.im@gmail.com'],
+              ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'{request.GET.get("return_url")}?sent=done')
 

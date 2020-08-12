@@ -23,6 +23,7 @@ urlpatterns = [
     path('kv/', views.kv, name='kv'),
     path('kv1/', views.kv1, name='kv1'),
     path('stroika_quiz/', views.stroika_quiz, name='stroika_quiz'),
+    path('diz_quiz/', views.diz_quiz, name='diz_quiz'),
     path('stroika_callback/', views.stroika_callback, name='stroika_callback'),
     path('cb_form/', views.cb_form, name='cb_form'),
     path('robots.txt', views.robots, name='robots'),
