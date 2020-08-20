@@ -25,7 +25,7 @@ def callback_ps(sender, instance, **kwargs):
                                                         'phone': instance.phone,
                                                         'item': instance.item,
                                                         'email': instance.email})
-    send_mail('Заполнена форма обратной связи на сайте specsintez-pro.ru', None, 'asupport@astrapromo.ru', 'igor@astrapromo.ru',
+    send_mail('Заполнена форма обратной связи на сайте specsintez-pro.ru', None, 'info@specsintez-pro.ru', ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
 
 post_save.connect(callback_ps, sender=Callback)

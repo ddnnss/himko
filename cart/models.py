@@ -41,7 +41,7 @@ def order_ps(sender, instance, **kwargs):
                                                      'id': instance.id,
                                                      'order': instance.order,
                                                      'doc':instance.is_doc()})
-    send_mail('Новый заказ на сайте specsintez-pro.ru', None, 'asupport@astrapromo.ru', ['igor@astrapromo.ru'],
+    send_mail('Новый заказ на сайте specsintez-pro.ru', None, 'info@specsintez-pro.ru', ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
 
 post_save.connect(order_ps, sender=Order)
