@@ -158,7 +158,7 @@ def kv(request):
                                                         'q5': request.GET.get("q5"),
                                                         'q6': request.GET.get("q6")})
 
-    send_mail(f'Заполнен квиз на сайте http://{request.GET.get("type")}.ru', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Заполнен квиз на сайте http://{request.GET.get("type")}.ru', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://{request.GET.get("type")}.ru/thanks.html')
@@ -175,7 +175,7 @@ def kv1(request):
                                                     'q8': request.GET.get("q8"),
                                                     'type': request.GET.get("type")})
 
-    send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Заполнен квиз ', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://remont.astralid2.ru/thanks.html')
@@ -204,7 +204,7 @@ def stroika_quiz(request):
                                                     'q8': request.GET.get("q8"),
                                                     'type': request.GET.get("type")})
 
-    send_mail(f'Заполнен квиз ', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Заполнен квиз ', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
 
@@ -257,7 +257,7 @@ def diz_quiz(request):
                                                     'q7': request.GET.get("q7"),
                                                     })
 
-    send_mail(f'Заполнен квиз на сайте дизайна', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Заполнен квиз на сайте дизайна', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
 
@@ -270,7 +270,7 @@ def cb_form(request):
                                                     'n': request.GET.get("name"),
                                                    })
 
-    send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Запрос на обратный звонок', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'http://remont.astralid2.ru/?sent={request.GET.get("type")}')
@@ -283,7 +283,7 @@ def stroika_callback(request):
                                                     's1': request.GET.get("s1"),
                                                    })
 
-    send_mail(f'Запрос на обратный звонок', None, 'no-reply@specsintez-pro.ru',
+    send_mail(f'Запрос на обратный звонок', None, 'asupport@astrapromo.ru',
               ['igor@astrapromo.ru'],
               fail_silently=False, html_message=msg_html)
     return HttpResponseRedirect(f'{request.GET.get("return_url")}?sent=done')
