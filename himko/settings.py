@@ -37,6 +37,7 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
+CORS_ORIGIN_ALLOW_ALL = True
 APPEND_SLASH = True
 # Application definition
 LOGGING = {

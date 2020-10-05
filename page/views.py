@@ -241,6 +241,9 @@ def stroika_quiz(request):
 
 
 
+
+
+
 def diz_quiz(request):
     print(request.GET)
 
@@ -357,3 +360,40 @@ wb = load_workbook(filename='c:/sites/cats.xlsx')
         print(sheet.cell(row=i, column=2).value)
         Category.objects.create(name=sheet.cell(row=i, column=1).value,name_slug=sheet.cell(row=i, column=2).value)
 """
+@csrf_exempt
+def bfl_callback(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    print(body)
+    msg_html = render_to_string('email/cb_form.html', {
+        'n': body['name'],
+        'p': body['phone'],
+
+    })
+
+    send_mail(f'КВИЗ ФОРМА ОБРАТНОЙ СВЯЗИ', None, 'info@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponse(status=200)
+
+
+@csrf_exempt
+def bfl_quiz(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+
+    msg_html = render_to_string('email/bfl_quiz.html', {
+        'q1': body['q1'],
+        'q2': body['q2'],
+        'q3': body['q3'],
+        'q4': body['q4'],
+        'q5': body['q5'],
+        'q6': body['q6'],
+        'phone': body['phone'],
+
+    })
+
+    send_mail(f'КВИЗ БФЛ', None, 'info@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponse(status=200)
