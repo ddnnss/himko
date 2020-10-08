@@ -32,6 +32,8 @@ urlpatterns = [
     path('remove/<id>', views.remove, name='remove'),
     path('make_slug_dfp217230lf', views.make_slug, name='make_slug'),
     path('search/', views.search, name='search'),
+    path('himko_quiz/', views.himko_quiz, name='himko_quiz'),
+    path('himko_callback/', views.himko_callback, name='himko_callback'),
     # path('test/', views.test, name='test'),
     # path('test1/', views.test1, name='test1')
 

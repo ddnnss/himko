@@ -397,3 +397,40 @@ def bfl_quiz(request):
               [settings.SEND_TO],
               fail_silently=False, html_message=msg_html)
     return HttpResponse(status=200)
+
+@csrf_exempt
+def himko_callback(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    print(body)
+    msg_html = render_to_string('email/cb_form.html', {
+        'n': body['name'],
+        'p': body['phone'],
+        't': body['type'],
+
+    })
+
+    send_mail(f'ХИМИЯ ФОРМА ОБРАТНОЙ СВЯЗИ', None, 'info@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponse(status=200)
+
+@csrf_exempt
+def himko_quiz(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    print(body)
+    msg_html = render_to_string('email/himko_quiz.html', {
+        'q1': body['q1'],
+        'q2': body['q2'],
+        'q3': body['q3'],
+        'q4': body['q4'],
+        'q5': body['q5'],
+        'phone': body['phone'],
+
+    })
+
+    send_mail(f'КВИЗ ХИМИЯ', None, 'info@specsintez-pro.ru',
+              [settings.SEND_TO],
+              fail_silently=False, html_message=msg_html)
+    return HttpResponse(status=200)
